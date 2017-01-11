@@ -10,7 +10,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="pages" scope="TEST" />
+    <orderEntry type="module" module-name="pages" />
     <orderEntry type="module" module-name="common" />
     <orderEntry type="module" module-name="model" />
     <orderEntry type="library" scope="TEST" name="Maven: org.testng:testng:6.8.8" level="project" />
