@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="Cucumber Login">
+    <test name="Sign-In on Pivotal Tracker">
+        <classes>
+            <class name="org.fundacion.automation.org.funjala.automation.web.pivotal.steps.login.loginRunner"/>
+        </classes>
+    </test>
+</suite>
