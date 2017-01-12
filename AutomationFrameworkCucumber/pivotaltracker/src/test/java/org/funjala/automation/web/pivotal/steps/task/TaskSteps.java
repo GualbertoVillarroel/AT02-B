@@ -1,11 +1,16 @@
 package org.funjala.automation.web.pivotal.steps.task;
 
-import cucumber.api.PendingException;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import java.io.IOException;
+
 import org.funjala.automation.web.common.api.ApiProjects;
 import org.funjala.automation.web.common.drivers.Driver;
 import org.funjala.automation.web.pages.pivotal.home.HomePage;
@@ -15,15 +20,11 @@ import org.funjala.automation.web.pages.pivotal.projects.ProjectMenuPage;
 import org.funjala.automation.web.pages.pivotal.stories.SideBarStoriesPage;
 import org.funjala.automation.web.pages.pivotal.stories.StoryPage;
 import org.funjala.automation.web.pages.pivotal.task.TaskPage;
+
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
-
-import java.io.IOException;
-
-import static org.testng.Assert.assertEquals;
 
 
-public class CreateTaskSteps {
+public class TaskSteps {
   WebDriver driver;
   LoginPage login;
   HomePage home;
@@ -65,18 +66,32 @@ public class CreateTaskSteps {
 
   /**
    * Create a Story to add Task.
+   *
    * @param storyName name of the story for the test.
    */
-  @When("^I go to Create Story as ([^\"]*) button and click$")
-  public void goToCreateStory(String storyName) {
+  @When("^I create a story as a (.*)$")
+  public void createAStoryWithXName(String storyName) {
     sideBarStories = projectMenuPage.sideBarStories();
     storyPage = sideBarStories.clickOnAddStoryButton();
     storyPage.setTitleStory(storyName);
     taskPage = storyPage.clickCreateTask(driver);
   }
 
+  @And("^I add a task as a (.*)$")
+  public void addATaskWithXName(String taskName) {
+    taskPage.addTask(taskName);
+    storyPage.clickOnCreateStory();
+  }
+
+  @Then("^A task named (.*) should be created$")
+  public void taskCalledXShouldBeCreated(String expectedTaskName) {
+    storyPage.clickOnExpandStory();
+    assertEquals(1, taskPage.sizeContentNameTask(expectedTaskName));
+  }
+
   /**
    * Add multiple task with the same name.
+   *
    * @param taskName for the test.
    */
   @And("^I add multiple tasks with the same name as ([^\"]*)$")
@@ -98,7 +113,7 @@ public class CreateTaskSteps {
   public void verifyTasksWasCreate(int tasks, String nameTask) {
     assertEquals(tasks, taskPage.sizeContentNameTask(nameTask));
   }
-//*******************************************************
+  //*******************************************************
 
   @And("^I have a task (.*?) and (.*?) created$")
   public void createTasks(String taskNameOne, String taskNameTwo) throws Throwable {
@@ -117,9 +132,8 @@ public class CreateTaskSteps {
   public void taskDeletedVerification(String taskName) throws Throwable {
     storyPage.clickOnCreateStory();
     storyPage.clickOnExpandStory();
-    assertEquals(0,taskPage.sizeContentNameTask(taskName));
+    assertEquals(0, taskPage.sizeContentNameTask(taskName));
   }
-
 
   /**
    * Method to clean up scenario.

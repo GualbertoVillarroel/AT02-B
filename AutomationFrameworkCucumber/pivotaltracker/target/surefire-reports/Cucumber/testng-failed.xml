@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Cucumber]">
+  <test name="Login on Pivotal(failed)">
+    <classes>
+      <class name="org.funjala.automation.web.pivotal.steps.task.TaskFeatureRunner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- org.funjala.automation.web.pivotal.steps.task.TaskFeatureRunner -->
+    </classes>
+  </test> <!-- Login on Pivotal(failed) -->
+</suite> <!-- Failed suite [Cucumber] -->

@@ -4,6 +4,7 @@ import static io.restassured.RestAssured.given;
 
 import java.io.IOException;
 import java.util.Properties;
+
 import io.restassured.response.Response;
 import org.funjala.automation.web.common.objectReader.ReadObject;
 
@@ -18,6 +19,7 @@ public class RestAssured {
   private String keyToken;
   private String proxyAddress;
   private int proxyPort;
+
   public RestAssured() throws IOException {
     ReadObject object = new ReadObject();
     configurationObj = object.getObjectRepository();
