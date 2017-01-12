@@ -4,15 +4,11 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-
 import org.funjala.automation.web.model.pivotal.help.HelpMainModel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-
-
 
 /**
  * Created by Fernando on 12/19/2016.
