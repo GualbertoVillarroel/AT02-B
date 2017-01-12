@@ -1,6 +1,5 @@
 package org.funjala.automation.web.common.api;
 
-import io.restassured.path.json.JsonPath;
 import java.io.IOException;
 import java.util.List;
 import org.testng.annotations.Test;

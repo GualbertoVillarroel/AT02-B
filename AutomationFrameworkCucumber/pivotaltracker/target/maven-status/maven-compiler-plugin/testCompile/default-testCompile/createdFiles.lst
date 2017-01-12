@@ -1,0 +1,3 @@
+org\funjala\automation\web\pivotal\base\Base.class
+org\funjala\automation\web\pivotal\steps\login\loginStepDefinitions.class
+org\funjala\automation\web\pivotal\steps\login\loginRunner.class
