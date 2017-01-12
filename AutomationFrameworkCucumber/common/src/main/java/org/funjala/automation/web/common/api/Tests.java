@@ -32,7 +32,7 @@ public class Tests {
   @Test
   public void testDelete() throws IOException {
     ApiProjects projects = new ApiProjects();
-    System.out.println(projects.deleteProjectByName("Test"));
+    System.out.println(projects.deleteProjectByName("TestProject"));
   }
 
   @Test

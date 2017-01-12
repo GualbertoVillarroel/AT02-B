@@ -14,9 +14,9 @@ public class ApiProjects {
 
     RestAssured restAssured = new RestAssured();
 
-    List<String> listNames = restAssured.get("org.funjala.automation.web.pivotal.base").jsonPath().getList("name");
-    List<Integer> listId = restAssured.get("org.funjala.automation.web.pivotal.base").jsonPath().getList("id");
-    List<String> listKind = restAssured.get("org.funjala.automation.web.pivotal.base").jsonPath().getList("kind");
+    List<String> listNames = restAssured.get("projects").jsonPath().getList("name");
+    List<Integer> listId = restAssured.get("projects").jsonPath().getList("id");
+    List<String> listKind = restAssured.get("projects").jsonPath().getList("kind");
 
     for (int index = 0; index < listNames.size(); index++) {
       Project project = new Project();
@@ -39,15 +39,14 @@ public class ApiProjects {
 
   public boolean deleteProjectByName(String nameOfProject) throws IOException {
     RestAssured restAssured = new RestAssured();
-    IllegalArgumentException exception= new IllegalArgumentException(nameOfProject + "doesn't exist.");
+    IllegalArgumentException exception = new IllegalArgumentException(nameOfProject + "doesn't exist.");
 
     Integer id = getProjectByName(nameOfProject).getId();
-    String endPoint = "org.funjala.automation.web.pivotal.base" + "/" + id;
+    String endPoint = "projects" + "/" + id;
 
-    if(restAssured.delete(endPoint).statusCode() == 204) {
+    if (restAssured.delete(endPoint).statusCode() == 204) {
       return true;
-    }
-    else {
+    } else {
       throw exception;
     }
   }
