@@ -15,7 +15,7 @@ public class TaskModel {
 
     public static final String editBtn = "//section[5]/div/div/div[1]/div[2]/nav/a[1]";
 
-    public static final String navOpt = "//div/div[1]/div[1]/nav";
+    public static final String taskList = "//section[5]/div/div/div[1]/div";
 
     public static final String alertDialog = "//*[@id=\"lightbox_container\"]/div/div/div[2]/div";
 
