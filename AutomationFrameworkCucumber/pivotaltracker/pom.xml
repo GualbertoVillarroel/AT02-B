@@ -50,7 +50,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/resource/testsuites/loginSuite.xml</suiteXmlFile>
+                        <suiteXmlFile>src/resource/testsuites/taskFeature.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

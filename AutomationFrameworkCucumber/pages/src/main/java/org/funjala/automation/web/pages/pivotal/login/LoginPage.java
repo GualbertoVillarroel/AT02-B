@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Henrry on 9/12/2016.
@@ -14,6 +16,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
 
   private WebDriver driver;
+  private WebDriverWait wait;
 
   @FindBy(id = LoginModel.userName)
   WebElement userName;
@@ -30,6 +33,7 @@ public class LoginPage {
   public LoginPage(WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);
+    wait = new WebDriverWait(driver, 10);
   }
 
   public void setUserName(String userNameStr) {
@@ -45,6 +49,7 @@ public class LoginPage {
   }
 
   public HomePage clickSubmit() {
+    wait.until(ExpectedConditions.elementToBeClickable(submitBtn));
     submitBtn.click();
     return new HomePage(driver);
   }
