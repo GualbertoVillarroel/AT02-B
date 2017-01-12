@@ -13,3 +13,9 @@ Feature: Task
     And I add multiple tasks with the same name as TaskTest
     And I click on save story with tasks
     Then I should have created 5 tasks with the same name as TaskTest
+
+  Scenario: Delete a Task
+    When I go to Create Story as StoryTest button and click
+    And I have a task taskOne and taskTwo created
+    When I delete taskOne
+    Then taskOne should be deleted

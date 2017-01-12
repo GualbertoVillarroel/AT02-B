@@ -1,5 +1,6 @@
 package org.funjala.automation.web.pivotal.steps.task;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -15,6 +16,7 @@ import org.funjala.automation.web.pages.pivotal.stories.SideBarStoriesPage;
 import org.funjala.automation.web.pages.pivotal.stories.StoryPage;
 import org.funjala.automation.web.pages.pivotal.task.TaskPage;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterSuite;
 
 import java.io.IOException;
 
@@ -96,6 +98,28 @@ public class CreateTaskSteps {
   public void verifyTasksWasCreate(int tasks, String nameTask) {
     assertEquals(tasks, taskPage.sizeContentNameTask(nameTask));
   }
+//*******************************************************
+
+  @And("^I have a task (.*?) and (.*?) created$")
+  public void createTasks(String taskNameOne, String taskNameTwo) throws Throwable {
+    taskPage = storyPage.clickCreateTask(driver);
+    taskPage.addTask(taskNameOne);
+    taskPage.addTask(taskNameTwo);
+  }
+
+  @When("^I delete (.*?)$")
+  public void deleteTask(String taskName) throws Throwable {
+    taskPage.deleteTask(taskName);
+
+  }
+
+  @Then("^(.*?) should be deleted$")
+  public void taskDeletedVerification(String taskName) throws Throwable {
+    storyPage.clickOnCreateStory();
+    storyPage.clickOnExpandStory();
+    assertEquals(0,taskPage.sizeContentNameTask(taskName));
+  }
+
 
   /**
    * Method to clean up scenario.

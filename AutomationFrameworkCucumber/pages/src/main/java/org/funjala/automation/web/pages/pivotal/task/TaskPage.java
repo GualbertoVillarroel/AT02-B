@@ -31,8 +31,8 @@ public class TaskPage {
     @FindBy(xpath = TaskModel.deleteBtn)
     WebElement deleteButton;
 
-    @FindBy(xpath = TaskModel.navOpt)
-    WebElement navigate;
+    @FindBy(xpath = TaskModel.taskList)
+    List<WebElement> taskList;
 
     @FindBy(xpath = TaskModel.alertDialog)
     WebElement alertDialog;
@@ -56,7 +56,6 @@ public class TaskPage {
     WebElement countTask;
 
 
-
     public TaskPage(WebDriver driver) {
         this.driver = driver;
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -66,8 +65,7 @@ public class TaskPage {
     public void addTask(String name) {
         nameTask.sendKeys(name);
         addButton.click();
-        if (name.isEmpty())
-        {
+        if (name.isEmpty()) {
             alertDialog();
         }
     }
@@ -77,19 +75,36 @@ public class TaskPage {
     }
 
     public void deleteTask(String name) {
-        navigate.findElement(By.xpath("//div[text()= '" + name + "']"));
-        checkInput.click();
-        deleteButton.click();
+        int index = 0;
+        int elementIndex = index;
+        for (WebElement task : taskList) {
+
+            WebElement deleteButton = driver.findElement(By.xpath("//div/div[1]/div[" + String.valueOf(elementIndex + 1) + "]/nav/a[2]"));
+            WebElement checkBox = driver.findElement(By.xpath("//section[5]/div/div/div[1]/div[" + String.valueOf(elementIndex + 1) + "]/input"));
+            if (task.getText().equalsIgnoreCase(name)) {
+                checkBox.click();
+                deleteButton.click();
+                elementIndex --;
+            }
+            elementIndex++;
+            index++;
+        }
     }
 
     public void editTask(String name) {
-        navigate.findElement(By.xpath("//div[text()= '" + name + "']"));
-        checkInput.click();
-        editButton.click();
+        for (WebElement task : taskList) {
+            int index = 0;
+            WebElement deleteButton = driver.findElement(By.xpath("//div/div[1]/div[" + String.valueOf(index + 1) + "]/nav/a[2]"));
+            WebElement checkBox = driver.findElement(By.xpath("//section[5]/div/div/div[1]/div[" + String.valueOf(index + 1) + "]/input"));
+            if (task.getText().equalsIgnoreCase(name)) {
+                checkBox.click();
+                deleteButton.click();
+            }
+            index++;
+        }
     }
 
-    public void inputNewName(String nameNew){
-
+    public void inputNewName(String nameNew) {
         txtEdit.clear();
         txtEdit.sendKeys(nameNew);
         saveEditButtom.click();
@@ -100,7 +115,6 @@ public class TaskPage {
     }
 
 
-
     public void clickButtonOk() {
         buttonOk.click();
     }
@@ -108,7 +122,7 @@ public class TaskPage {
     public int sizeContentNameTask(String name) {
         Integer count = 0;
         List<WebElement> elementTabla = driver.findElements(By.xpath("//section[5]/div/div/div[1]/div"));
-        for (WebElement elementFind:elementTabla) {
+        for (WebElement elementFind : elementTabla) {
 
             if (elementFind.getText().equals(name))
                 count++;
