@@ -6,7 +6,7 @@ Feature: Task
   Background: Login
     Given I am on Pivotal Tracker page
     And I put a at-02@outlook.com and press Next button
-    And I put a At02auto and press Submit button
+    And I put a Automation123 and press Submit button
     And I create a project as a TestProject
     And I select an account as a Jala
 
