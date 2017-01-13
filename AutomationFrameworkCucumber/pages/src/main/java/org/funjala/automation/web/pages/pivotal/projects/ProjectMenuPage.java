@@ -40,7 +40,7 @@ public class ProjectMenuPage {
     return projectNameElement.getText().equalsIgnoreCase(projectName) ? true : false;
   }
 
-  public void clickProfileName(){
+  public void clickProfileName() {
     wait.until(ExpectedConditions.elementToBeClickable(projectProfileName));
     projectProfileName.click();
   }
