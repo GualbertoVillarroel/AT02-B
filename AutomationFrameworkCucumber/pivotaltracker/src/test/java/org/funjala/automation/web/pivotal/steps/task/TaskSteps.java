@@ -158,6 +158,7 @@ public class TaskSteps {
   public void iExpectAnAlertMessage() {
     assertTrue(taskPage.alertDialog().contains("Cannot Save Task"));
     taskPage.clickButtonOk();
+    storyPage.clickOnCreateStory();
   }
 
   /**

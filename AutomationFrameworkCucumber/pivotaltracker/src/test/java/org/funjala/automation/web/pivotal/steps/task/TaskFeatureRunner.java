@@ -4,7 +4,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(features = "src\\resource\\features\\task\\task.feature",
-        format = {"pretty", "html:reports/cucumber"})
+        format = {"json:target/cucumber.json","html:target/site/cucumber-pretty"})
 public class TaskFeatureRunner extends AbstractTestNGCucumberTests{
 
 }
