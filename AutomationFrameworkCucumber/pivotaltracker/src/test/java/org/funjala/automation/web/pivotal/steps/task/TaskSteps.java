@@ -128,11 +128,25 @@ public class TaskSteps {
 
   }
 
+
   @Then("^(.*?) should be deleted$")
   public void taskDeletedVerification(String taskName) throws Throwable {
     storyPage.clickOnCreateStory();
     storyPage.clickOnExpandStory();
     assertEquals(0, taskPage.sizeContentNameTask(taskName));
+  }
+  @When("^I change the name of (.*?) for (.*?)$")
+  public void editTask(String taskName, String taskNameUpdate) throws Throwable {
+    taskPage.editTask(taskName);
+    taskPage.inputNewName(taskNameUpdate);
+    storyPage.clickOnCreateStory();
+  }
+
+
+  @Then("^The task should be change to (.*?)$")
+  public void taskEditVerification(String taskName) throws Throwable {
+    storyPage.clickOnExpandStory();
+    assertEquals(1, taskPage.sizeContentNameTask(taskName));
   }
 
   /**
