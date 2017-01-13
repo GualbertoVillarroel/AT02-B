@@ -19,7 +19,7 @@ Feature: Task
     When I create a story as a StoryTest
     And I have a task taskOne and taskTwo created
     When I change the name of taskTwo for TestTaskUpdated
-    Then The task should be change to TestTaskUpdatedm
+    Then The task should be change to TestTaskUpdated
 
   Scenario: Create multiple Tasks with the same name
     When I create a story as a StoryTest
