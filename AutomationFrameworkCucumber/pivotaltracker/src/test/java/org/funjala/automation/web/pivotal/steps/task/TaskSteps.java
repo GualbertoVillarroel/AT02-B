@@ -168,5 +168,7 @@ public class TaskSteps {
     ApiProjects apiProjects = new ApiProjects();
     apiProjects.deleteAllProjects();
     home.logOut();
+
+    driver.get("https://www.pivotaltracker.com/signin?signin_with_different=true");
   }
 }
