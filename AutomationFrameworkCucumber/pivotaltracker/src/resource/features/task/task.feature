@@ -15,6 +15,12 @@ Feature: Task
     And I add a task as a TestTask
     Then A task named TestTask should be created
 
+  Scenario: Update name a Task
+    When I create a story as a StoryTest
+    And I have a task taskOne and taskTwo created
+    When I change the name of taskTwo for TestTaskUpdated
+    Then The task should be change to TestTaskUpdatedm
+
   Scenario: Create multiple Tasks with the same name
     When I create a story as a StoryTest
     And I add multiple tasks with the same name as TaskTest

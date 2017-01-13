@@ -55,6 +55,9 @@ public class TaskPage {
   @FindBy(xpath = TaskModel.countTask)
   WebElement countTask;
 
+  @FindBy(xpath = TaskModel.navOpt)
+  WebElement navigate;
+
 
   public TaskPage(WebDriver driver) {
     this.driver = driver;
@@ -92,16 +95,9 @@ public class TaskPage {
   }
 
   public void editTask(String name) {
-    for (WebElement task : taskList) {
-      int index = 0;
-      WebElement deleteButton = driver.findElement(By.xpath("//div/div[1]/div[" + String.valueOf(index + 1) + "]/nav/a[2]"));
-      WebElement checkBox = driver.findElement(By.xpath("//section[5]/div/div/div[1]/div[" + String.valueOf(index + 1) + "]/input"));
-      if (task.getText().equalsIgnoreCase(name)) {
-        checkBox.click();
-        deleteButton.click();
-      }
-      index++;
-    }
+    navigate.findElement(By.xpath("//div[text()= '" + name + "']"));
+    checkInput.click();
+    editButton.click();
   }
 
   public void inputNewName(String nameNew) {
