@@ -149,6 +149,17 @@ public class TaskSteps {
     assertEquals(1, taskPage.sizeContentNameTask(taskName));
   }
 
+  @When("^I press add new task without name$")
+  public void iPressAddNewTaskWithoutName() {
+    taskPage.addTask("");
+  }
+
+  @Then("^I expect an alert message$")
+  public void iExpectAnAlertMessage() {
+    assertTrue(taskPage.alertDialog().contains("Cannot Save Task"));
+    taskPage.clickButtonOk();
+  }
+
   /**
    * Method to clean up scenario.
    */
