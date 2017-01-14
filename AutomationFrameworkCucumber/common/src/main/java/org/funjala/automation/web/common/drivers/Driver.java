@@ -30,7 +30,7 @@ public class Driver {
     if (chrome == null) {
       ReadObject object = new ReadObject();
       Properties configurationObj = object.getObjectRepository();
-      driver = new WebDriverFactory(configurationObj.getProperty("browser")).getDriver();
+      driver = new WebDriverFactory(System.getProperty("browser")).getDriver();
       driver.manage().timeouts().implicitlyWait(14, TimeUnit.SECONDS);
       driver.manage().window().maximize();
       driver.get(configurationObj.getProperty("url"));

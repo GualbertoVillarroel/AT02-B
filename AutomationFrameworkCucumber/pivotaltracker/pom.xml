@@ -52,6 +52,9 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/resource/testsuites/taskFeature.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <systemPropertyVariables>
+                        <browser>chrome</browser>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
