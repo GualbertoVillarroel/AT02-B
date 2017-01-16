@@ -34,6 +34,11 @@
 
     </dependencies>
 
+    <properties>
+        <defaultSuiteFiles>allFeatures</defaultSuiteFiles>
+        <suite>${defaultSuiteFiles}</suite>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -50,7 +55,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/resource/testsuites/taskFeature.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testsuites/allFeatures.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <browser>chrome</browser>

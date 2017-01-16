@@ -4,8 +4,6 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
-import java.io.IOException;
-
 
 /**
  * Created by Angelica Rodriguez on 1/13/2017.
@@ -13,15 +11,11 @@ import java.io.IOException;
 public class Hooks {
     @Before
     public void beforeScenario(Scenario scenario) {
-        System.out.println("The Scenarie started:" + scenario.getName());
+        System.out.println("The Scenarie started: " + scenario.getName());
     }
 
     @After
-    public void afterScenario(Scenario scenario) throws IOException {
-        if(scenario.isFailed()) {
-            System.err.println("errorrrrrrrrr");
-        }
-        System.out.println("The Scenarie finished: "+ scenario.getName() +"and status is :"+scenario.getStatus());
-
+    public void afterScenario(Scenario scenario) {
+           System.out.println("The Scenarie finished: "+ scenario.getName() +", Status is :"+scenario.getStatus());
     }
 }
