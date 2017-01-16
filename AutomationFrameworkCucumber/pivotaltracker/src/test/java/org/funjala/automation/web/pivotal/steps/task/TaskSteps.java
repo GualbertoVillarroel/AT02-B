@@ -3,6 +3,7 @@ package org.funjala.automation.web.pivotal.steps.task;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -13,6 +14,7 @@ import java.io.IOException;
 
 import org.funjala.automation.web.common.api.ApiProjects;
 import org.funjala.automation.web.common.drivers.Driver;
+import org.funjala.automation.web.common.utilities.CucumberScreenshot;
 import org.funjala.automation.web.pages.pivotal.home.HomePage;
 import org.funjala.automation.web.pages.pivotal.login.LoginPage;
 import org.funjala.automation.web.pages.pivotal.projects.CreateProjectPage;
@@ -165,8 +167,11 @@ public class TaskSteps {
    * Method to clean up scenario.
    */
   @After
-  public void logout() throws IOException {
+  public void logout(Scenario scenario) throws IOException {
     ApiProjects apiProjects = new ApiProjects();
+    CucumberScreenshot screenshot = new CucumberScreenshot();
+
+    screenshot.takeScreenshot(scenario);
     apiProjects.deleteAllProjects();
     home.logOut();
 
