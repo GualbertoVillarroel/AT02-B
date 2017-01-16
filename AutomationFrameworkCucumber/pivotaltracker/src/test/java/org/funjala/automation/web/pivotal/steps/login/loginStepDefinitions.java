@@ -2,6 +2,7 @@ package org.funjala.automation.web.pivotal.steps.login;
 
 import org.funjala.automation.web.common.drivers.Driver;
 
+import org.funjala.automation.web.pages.pivotal.home.HomePage;
 import org.funjala.automation.web.pages.pivotal.login.LoginPage;
 import org.openqa.selenium.WebDriver;
 
@@ -21,11 +22,13 @@ import static org.testng.Assert.assertEquals;
 public class loginStepDefinitions {
   WebDriver driver;
   LoginPage login;
+  HomePage homePage;
 
   @Given("^I navigate to Pivotal Tracker Website$")
   public void openPivotalTracker() throws IOException {
     driver = Driver.getDriver().openBrowser();
     login = new LoginPage(driver);
+    homePage = new HomePage(driver);
   }
 
   @When("^I set a valid username/email as (.*?)$")
@@ -52,6 +55,8 @@ public class loginStepDefinitions {
   public void redirectToPivotalTrackerDashboard(String url) {
     String actualResult = driver.getCurrentUrl();
     assertEquals(actualResult, url);
+    homePage.logOut();
+    driver.get("https://www.pivotaltracker.com/signin?signin_with_different=true");
   }
 
 }
