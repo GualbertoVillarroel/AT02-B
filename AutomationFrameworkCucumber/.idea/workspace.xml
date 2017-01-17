@@ -372,8 +372,8 @@
       <file leaf-file-name="task.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pivotaltracker/src/test/resources/features/task/task.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+            <state relative-caret-position="511">
+              <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -382,14 +382,24 @@
       <file leaf-file-name="TaskSteps.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pivotaltracker/src/test/java/org/funjala/automation/web/pivotal/steps/task/TaskSteps.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="65" column="22" lean-forward="false" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
+            <state relative-caret-position="263">
+              <caret line="145" column="18" lean-forward="false" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateProjectPage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TaskPage.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/task/TaskPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="91" column="74" lean-forward="false" selection-start-line="91" selection-start-column="74" selection-end-line="91" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateProjectPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/projects/CreateProjectPage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="663">
@@ -426,16 +436,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
               <caret line="5" column="57" lean-forward="false" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="125" column="68" lean-forward="false" selection-start-line="125" selection-start-column="68" selection-end-line="125" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -513,7 +513,6 @@
         <option value="$PROJECT_DIR$/pivotaltracker/src/test/java/org/funjala/automation/web/pivotal/steps/task/DeleteTaskSteps.java" />
         <option value="$PROJECT_DIR$/pivotaltracker/src/test/java/org/funjala/automation/web/pivotal/steps/task/CreateTaskSteps.java" />
         <option value="$PROJECT_DIR$/pivotaltracker/reports/cucumber/Readme.txt" />
-        <option value="$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/task/TaskPage.java" />
         <option value="$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/help/ContactSupportPage.java" />
         <option value="$PROJECT_DIR$/model/src/main/java/org/funjala/automation/web/model/pivotal/help/ContactSupportModel.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/org/funjala/automation/web/common/utilities/Log.java" />
@@ -539,6 +538,7 @@
         <option value="$PROJECT_DIR$/pivotaltracker/src/test/java/org/funjala/automation/web/pivotal/steps/login/loginStepDefinitions.java" />
         <option value="$PROJECT_DIR$/pivotaltracker/src/test/java/org/funjala/automation/web/pivotal/steps/task/TaskSteps.java" />
         <option value="$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/projects/CreateProjectPage.java" />
+        <option value="$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/task/TaskPage.java" />
       </list>
     </option>
   </component>
@@ -1518,7 +1518,7 @@
       <workItem from="1484601946574" duration="7222000" />
       <workItem from="1484671949121" duration="1538000" />
       <workItem from="1484670808922" duration="356000" />
-      <workItem from="1484689455849" duration="5371000" />
+      <workItem from="1484689455849" duration="5893000" />
     </task>
     <servers />
   </component>
@@ -1555,7 +1555,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46523000" />
+    <option name="totallyTimeSpent" value="47045000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1444" height="876" extended-state="0" />
@@ -1745,13 +1745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/task/TaskPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/src/main/java/org/funjala/automation/web/common/objectReader/ReadObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1901,34 +1894,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pivotaltracker/src/test/java/org/funjala/automation/web/pivotal/steps/login/loginStepDefinitions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="67" column="5" lean-forward="false" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pivotaltracker/src/test/resources/features/task/task.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/home/HomePage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="55" column="27" lean-forward="false" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pivotaltracker/src/test/java/org/funjala/automation/web/pivotal/steps/task/TaskSteps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="65" column="22" lean-forward="false" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1940,6 +1909,38 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pivotaltracker/src/test/java/org/funjala/automation/web/pivotal/steps/login/loginStepDefinitions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="757">
+          <caret line="67" column="5" lean-forward="false" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pivotaltracker/src/test/resources/features/task/task.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pivotaltracker/src/test/java/org/funjala/automation/web/pivotal/steps/task/TaskSteps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="145" column="18" lean-forward="false" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/task/TaskPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="91" column="74" lean-forward="false" selection-start-line="91" selection-start-column="74" selection-end-line="91" selection-end-column="74" />
+          <folding />
         </state>
       </provider>
     </entry>
