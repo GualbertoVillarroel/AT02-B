@@ -12,7 +12,7 @@ Feature: Task
 
   Scenario: Create a Task
     When I create a story as a StoryTest
-    And I add a task as a Task
+    And I add a task as a TestTask
     Then A task named TestTask should be created
 
   Scenario: Update name a Task
