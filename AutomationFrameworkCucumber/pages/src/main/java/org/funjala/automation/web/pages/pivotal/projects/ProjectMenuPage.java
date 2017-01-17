@@ -63,6 +63,7 @@ public class ProjectMenuPage {
   }
 
   public SideBarStoriesPage sideBarStories() {
+    wait.until(ExpectedConditions.titleIs(driver.getTitle()));
     return new SideBarStoriesPage(driver);
   }
 }

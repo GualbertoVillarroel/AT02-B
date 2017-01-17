@@ -3,6 +3,7 @@ package org.funjala.automation.web.pages.pivotal.login;
 
 import org.funjala.automation.web.model.pivotal.login.LoginModel;
 import org.funjala.automation.web.pages.pivotal.home.HomePage;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -45,12 +46,12 @@ public class LoginPage {
   }
 
   public void clickContinue() {
-    continueBtn.click();
+    continueBtn.sendKeys(Keys.ENTER);
   }
 
   public HomePage clickSubmit() {
     wait.until(ExpectedConditions.elementToBeClickable(submitBtn));
-    submitBtn.click();
+    submitBtn.sendKeys(Keys.ENTER);
     return new HomePage(driver);
   }
 
