@@ -26,12 +26,11 @@ public class Log {
     log.debug("Name of class: " + myclass + "Message: " + msg);
   }
 
-  public void info(String myclass, String msg) {
-    log.info("Name of class: " + myclass + "Message: " + msg);
+  public void info(String type, String typeValue, String msg) {
+    log.info(type.toUpperCase() + ": " + typeValue + "." + " Message: ".toUpperCase() + msg + ".");
   }
 
   public void warning(String myclass, String msg) {
-    log.warn("Name of class: " + myclass + "Message: " + msg);
+    log.warn("Name of class: " + myclass + " Message: " + msg);
   }
-
 }
