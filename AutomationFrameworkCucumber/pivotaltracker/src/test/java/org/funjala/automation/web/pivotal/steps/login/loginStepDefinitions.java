@@ -28,7 +28,6 @@ public class loginStepDefinitions {
   public void openPivotalTracker() throws IOException {
     driver = Driver.getDriver().openBrowser();
     login = new LoginPage(driver);
-    homePage = new HomePage(driver);
   }
 
   @When("^I set a valid username/email as (.*?)$")
@@ -55,6 +54,7 @@ public class loginStepDefinitions {
   public void redirectToPivotalTrackerDashboard(String url) {
     String actualResult = driver.getCurrentUrl();
     assertEquals(actualResult, url);
+    homePage = new HomePage(driver);
     homePage.logOut();
     driver.get("https://www.pivotaltracker.com/signin?signin_with_different=true");
   }
