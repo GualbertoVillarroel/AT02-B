@@ -13,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 /**
@@ -21,6 +23,7 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage {
 
   private WebDriver driver;
+  private WebDriverWait wait;
 
   @FindBy(xpath = HomeModel.createProjectBtn)
   WebElement createProjectBtn;
@@ -47,9 +50,11 @@ public class HomePage {
   public HomePage(WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);
+    wait = new WebDriverWait(driver, 10);
   }
 
   public CreateProjectPage clickCreateProject() {
+    wait.until(ExpectedConditions.titleIs(driver.getTitle()));
     createProjectBtn.click();
     return new CreateProjectPage(this.driver);
   }
