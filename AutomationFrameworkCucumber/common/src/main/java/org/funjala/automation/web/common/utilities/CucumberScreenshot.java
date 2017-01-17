@@ -20,7 +20,7 @@ public class CucumberScreenshot {
   public void takeScreenshot(Scenario scenario) throws IOException {
     if (scenario.isFailed()) {
       byte[] myScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-      FileOutputStream out = new FileOutputStream("../pivotaltracker/target/pivotal-reports/cucumber-html-reports/images/failure-screenshot-"
+      FileOutputStream out = new FileOutputStream("../pivotaltracker/reports/cucumber/Screenshots/failure-screenshot-"
               + (scenario.getName()).replace(" ", "-") + ".png");
       out.write(myScreenshot);
       scenario.embed(myScreenshot, "image/png");
