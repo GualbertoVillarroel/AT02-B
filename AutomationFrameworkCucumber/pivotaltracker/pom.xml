@@ -58,7 +58,7 @@
                         <suiteXmlFile>src/test/resources/testsuites/allFeatures.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <browser>chrome</browser>
+                        <browser>firefox</browser>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>

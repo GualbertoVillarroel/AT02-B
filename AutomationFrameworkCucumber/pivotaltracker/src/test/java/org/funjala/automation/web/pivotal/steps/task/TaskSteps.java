@@ -191,7 +191,7 @@ public class TaskSteps {
   /**
    * Method to clean up scenario.
    */
-  @After
+  @After("@task")
   public void logout(Scenario scenario) throws IOException {
     log.info("Step", "Deleting project by API", "Deleting the project");
     ApiProjects apiProjects = new ApiProjects();
@@ -201,11 +201,11 @@ public class TaskSteps {
     log.info("Step", "Logout of the account", "Quiting of the account");
     home.logOut();
 
-      try {
-        Thread.sleep(5000);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
+    try {
+      Thread.sleep(5000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
 
     log.info("Step", "Go to the login page", "Going to the login page");
     driver.get("https://www.pivotaltracker.com/signin?signin_with_different=true");

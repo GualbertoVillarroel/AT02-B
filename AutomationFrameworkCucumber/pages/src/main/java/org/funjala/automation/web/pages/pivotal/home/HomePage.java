@@ -55,6 +55,8 @@ public class HomePage {
 
   public CreateProjectPage clickCreateProject() {
     wait.until(ExpectedConditions.titleIs(driver.getTitle()));
+    wait.until(ExpectedConditions.elementToBeClickable(createProjectBtn));
+    wait.until(ExpectedConditions.visibilityOf(createProjectBtn));
     createProjectBtn.click();
     return new CreateProjectPage(this.driver);
   }
