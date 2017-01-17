@@ -393,7 +393,7 @@
         <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/task/TaskPage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
-              <caret line="91" column="74" lean-forward="false" selection-start-line="91" selection-start-column="74" selection-end-line="91" selection-end-column="74" />
+              <caret line="91" column="10" lean-forward="false" selection-start-line="91" selection-start-column="10" selection-end-line="91" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -1518,7 +1518,7 @@
       <workItem from="1484601946574" duration="7222000" />
       <workItem from="1484671949121" duration="1538000" />
       <workItem from="1484670808922" duration="356000" />
-      <workItem from="1484689455849" duration="5893000" />
+      <workItem from="1484689455849" duration="6139000" />
     </task>
     <servers />
   </component>
@@ -1555,7 +1555,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47045000" />
+    <option name="totallyTimeSpent" value="47291000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1444" height="876" extended-state="0" />
@@ -1939,7 +1939,7 @@
     <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/task/TaskPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="91" column="74" lean-forward="false" selection-start-line="91" selection-start-column="74" selection-end-line="91" selection-end-column="74" />
+          <caret line="91" column="10" lean-forward="false" selection-start-line="91" selection-start-column="10" selection-end-line="91" selection-end-column="30" />
           <folding />
         </state>
       </provider>
