@@ -128,7 +128,7 @@ public class TaskSteps {
     log.info("Step", "I should have created " + tasks + "tasks with the same name as " + nameTask, "Verifying tasks created");
 
     assertEquals(tasks, taskPage.sizeContentNameTask(nameTask));
-    storyPage.clickOnCreateStory();
+    //storyPage.clickOnCreateStory();
   }
   //*******************************************************
 
@@ -154,7 +154,7 @@ public class TaskSteps {
     storyPage.clickOnCreateStory();
     storyPage.clickOnExpandStory();
     assertEquals(0, taskPage.sizeContentNameTask(taskName));
-    storyPage.clickOnCreateStory();
+    //storyPage.clickOnCreateStory();
   }
 
   @When("^I change the name of (.*?) for (.*?)$")
@@ -171,7 +171,7 @@ public class TaskSteps {
     log.info("Step", "The task should be change to " + taskName, "Verifying the changed name of a task");
     storyPage.clickOnExpandStory();
     assertEquals(1, taskPage.sizeContentNameTask(taskName));
-    storyPage.clickOnCreateStory();
+    //storyPage.clickOnCreateStory();
   }
 
   @When("^I press add new task without name$")
@@ -191,7 +191,7 @@ public class TaskSteps {
   /**
    * Method to clean up scenario.
    */
-  @After
+  @After("@task")
   public void logout(Scenario scenario) throws IOException {
     log.info("Step", "Deleting project by API", "Deleting the project");
     ApiProjects apiProjects = new ApiProjects();
@@ -201,11 +201,11 @@ public class TaskSteps {
     log.info("Step", "Logout of the account", "Quiting of the account");
     home.logOut();
 
-      try {
-        Thread.sleep(5000);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
+    try {
+      Thread.sleep(5000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
 
     log.info("Step", "Go to the login page", "Going to the login page");
     driver.get("https://www.pivotaltracker.com/signin?signin_with_different=true");

@@ -6,4 +6,4 @@ Feature: Sign-In to Pivotal Tracker as a newly created user
     And I press NEXT button a new password field should appear
     And I set a valid password as Automation123
     And I press the SIGN IN button
-    Then I should be redirected to the Pivotal Dashboard and see the url as https://www.pivotaltracker.com/dashboard
+    Then I should be redirected to the Pivotal Dashboard

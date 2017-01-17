@@ -50,12 +50,22 @@ public class loginStepDefinitions {
     login.clickSubmit();
   }
 
-  @Then("^I should be redirected to the Pivotal Dashboard and see the url as (.*?)$")
-  public void redirectToPivotalTrackerDashboard(String url) {
-    String actualResult = driver.getCurrentUrl();
-    assertEquals(actualResult, url);
+  @Then("^I should be redirected to the Pivotal Dashboard$")
+  public void redirectToPivotalTrackerDashboard() {
+    assertEquals(driver.getTitle(), "Pivotal Tracker - Sign in");
+    System.out.println(driver.getTitle());
     homePage = new HomePage(driver);
+    try {
+      Thread.sleep(5000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     homePage.logOut();
+    try {
+      Thread.sleep(5000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     driver.get("https://www.pivotaltracker.com/signin?signin_with_different=true");
   }
 
