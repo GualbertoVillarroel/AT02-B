@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -40,6 +41,9 @@ public class TaskPage {
   @FindBy(xpath = TaskModel.checkInput)
   WebElement checkInput;
 
+  @FindBy(xpath = TaskModel.checkTask)
+  WebElement checkTask;
+
   @FindBy(xpath = TaskModel.editBtn)
   WebElement editButton;
 
@@ -58,11 +62,23 @@ public class TaskPage {
   @FindBy(xpath = TaskModel.navOpt)
   WebElement navigate;
 
+  @FindBy(xpath = TaskModel.taskStatus)
+  WebElement tasksStatus;
+
 
   public TaskPage(WebDriver driver) {
     this.driver = driver;
     WebDriverWait wait = new WebDriverWait(driver, 10);
     PageFactory.initElements(driver, this);
+  }
+
+  public void setCheckInput(String nameTask) {
+    navigate.findElement(By.xpath("//div[text()= '" + nameTask + "']"));
+    checkInput.click();
+  }
+
+  public String getTaskDone() {
+    return tasksStatus.getText();
   }
 
   public void addTask(String name) {
