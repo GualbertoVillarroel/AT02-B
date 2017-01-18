@@ -23,6 +23,8 @@ public class TaskModel {
 
   public static final String checkInput = "//section[5]/div/div/div[1]/div[2]/input";
 
+  public static final String checkTask = "//section[5]/div/div/div[1]/div[1]/input";
+
   public static final String nameEdit = "//section/textarea";
 
   public static final String saveEdit = "(//button[@type='submit'])[3]";
@@ -30,4 +32,7 @@ public class TaskModel {
   public static final String buttonOk = "//div/div[2]/div/div[3]/button";
 
   public static final String countTask = "//section[5]/div/div/span/h4";
+
+  public static final String taskStatus = "//section/section[5]/div/div/span/h4";
+
 }

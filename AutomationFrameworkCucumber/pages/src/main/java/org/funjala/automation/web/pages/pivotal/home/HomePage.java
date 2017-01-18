@@ -64,6 +64,11 @@ public class HomePage {
   public void logOut() {
     logOutBtn.click();
     signOutBtn.click();
+    try {
+      Thread.sleep(2000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
   public ProjectsWorkSpacesPage clickProjectsAndWorkSpaces() {
@@ -100,5 +105,4 @@ public class HomePage {
     helpLink.click();
     return new ContactSupportPage(driver);
   }
-
 }
