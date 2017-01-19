@@ -33,7 +33,7 @@ public class Driver {
       driver = new WebDriverFactory(System.getProperty("browser")).getDriver();
       driver.manage().timeouts().implicitlyWait(14, TimeUnit.SECONDS);
       driver.manage().window().maximize();
-      driver.get(configurationObj.getProperty("url"));
+      driver.get(configurationObj.getProperty("urlOE"));
       chrome = driver;
     } else if (chrome != null) {
       driver = chrome;
