@@ -12,7 +12,7 @@ public class ReadObject {
 
   public Properties getObjectRepository() throws IOException {
     //Read object repository file
-    InputStream stream = new FileInputStream(new File(System.getProperty("user.dir").replace("common", "pivotaltracker") + "\\src\\resource\\configuration\\configurationFile.properties"));
+    InputStream stream = new FileInputStream(new File(System.getProperty("user.dir").replace("common", "pivotaltracker") + "\\src\\resources\\configuration\\configurationFile.properties"));
     //load all objects
     properties.load(stream);
     return properties;
