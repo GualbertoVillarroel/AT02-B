@@ -22,3 +22,22 @@
 2017-01-19 17:28:44 INFO  - SCENARIO: Create task without name. MESSAGE: starting scenario.
 2017-01-19 17:28:44 INFO  - STEP: I am on Pivotal Tracker page. MESSAGE: Going to pivotal tracker page.
 2017-01-19 17:28:44 INFO  - STEP: I put a at-02@outlook.com and press Next button. MESSAGE: Inserting username.
+2017-01-20 09:07:05 INFO  - SCENARIO: Sign-in to Pivotal Tracker with valid username and password.. MESSAGE: starting scenario.
+2017-01-20 09:07:05 INFO  - SCENARIO: Create a Task. MESSAGE: starting scenario.
+2017-01-20 09:07:05 INFO  - STEP: I am on Pivotal Tracker page. MESSAGE: Going to pivotal tracker page.
+2017-01-20 09:07:05 INFO  - STEP: Deleting project by API. MESSAGE: Deleting the project.
+2017-01-20 09:07:05 INFO  - SCENARIO: Update name a Task. MESSAGE: starting scenario.
+2017-01-20 09:07:05 INFO  - STEP: I am on Pivotal Tracker page. MESSAGE: Going to pivotal tracker page.
+2017-01-20 09:07:05 INFO  - STEP: Deleting project by API. MESSAGE: Deleting the project.
+2017-01-20 09:07:06 INFO  - SCENARIO: Create multiple Tasks with the same name. MESSAGE: starting scenario.
+2017-01-20 09:07:06 INFO  - STEP: I am on Pivotal Tracker page. MESSAGE: Going to pivotal tracker page.
+2017-01-20 09:07:06 INFO  - STEP: Deleting project by API. MESSAGE: Deleting the project.
+2017-01-20 09:07:06 INFO  - SCENARIO: Delete a Task. MESSAGE: starting scenario.
+2017-01-20 09:07:06 INFO  - STEP: I am on Pivotal Tracker page. MESSAGE: Going to pivotal tracker page.
+2017-01-20 09:07:06 INFO  - STEP: Deleting project by API. MESSAGE: Deleting the project.
+2017-01-20 09:07:06 INFO  - SCENARIO: Create task without name. MESSAGE: starting scenario.
+2017-01-20 09:07:06 INFO  - STEP: I am on Pivotal Tracker page. MESSAGE: Going to pivotal tracker page.
+2017-01-20 09:07:06 INFO  - STEP: Deleting project by API. MESSAGE: Deleting the project.
+2017-01-20 09:07:06 INFO  - SCENARIO: Check a task as Done. MESSAGE: starting scenario.
+2017-01-20 09:07:06 INFO  - STEP: I am on Pivotal Tracker page. MESSAGE: Going to pivotal tracker page.
+2017-01-20 09:07:06 INFO  - STEP: Deleting project by API. MESSAGE: Deleting the project.
