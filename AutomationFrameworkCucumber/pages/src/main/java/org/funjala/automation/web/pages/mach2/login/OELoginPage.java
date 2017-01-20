@@ -1,5 +1,9 @@
 package org.funjala.automation.web.pages.mach2.login;
 
+import org.funjala.automation.web.model.erp.login.LoginModel;
+import org.funjala.automation.web.pages.mach2.home.OEHomePage;
+import org.funjala.automation.web.pages.pivotal.home.HomePage;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,10 +20,10 @@ public class OELoginPage {
     wait = new WebDriverWait(driver, 10);
   }
 
-  @FindBy(id = "username")
+  @FindBy(id = LoginModel.password)
   WebElement userName;
 
-  @FindBy(id = "password")
+  @FindBy(id = LoginModel.userName)
   WebElement password;
 
   @FindBy(xpath = "//*[@id='fm1']/section[3]/input[4]")
@@ -33,7 +37,8 @@ public class OELoginPage {
     password.sendKeys(pass);
   }
 
-  public void clickBtnSubmit() {
+  public OEHomePage clickBtnSubmit() {
     btnSubmit.click();
+    return new OEHomePage(driver);
   }
 }

@@ -6,10 +6,14 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.funjala.automation.web.common.drivers.Driver;
+import org.funjala.automation.web.pages.mach2.home.OEHomePage;
 import org.funjala.automation.web.pages.mach2.login.OELoginPage;
+import org.funjala.automation.web.pages.pivotal.home.HomePage;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Map;
+
+import static org.testng.Assert.assertTrue;
 
 /**
  * Created by Administrator on 1/19/2017.
@@ -17,26 +21,29 @@ import java.util.Map;
 public class LoginOE {
   WebDriver driver;
   OELoginPage login;
+  OEHomePage homePage;
 
   @Given("^I navigate to OpenERP web page$")
   public void iNavigateToOpenERPWebPage() throws Throwable {
-    driver= Driver.getDriver().openBrowser();
-    login=new OELoginPage(driver);
+    driver = Driver.getDriver().openBrowser();
+    login = new OELoginPage(driver);
   }
 
   @When("^I put the next data$")
-  public void iPutTheNextData(Map<String,String> table) {
+  public void iPutTheNextData(Map<String, String> table) {
     login.setUserName(table.get("username"));
     login.setPassword(table.get("password"));
   }
 
   @And("^I press the button submit$")
   public void iPressTheButtonSubmit() {
-    login.clickBtnSubmit();
+    homePage = login.clickBtnSubmit();
   }
 
   @Then("^I expect redirect to the main page$")
   public void iExpectRedirectToTheMainPage() throws Throwable {
-    System.out.println("--------------------------------works----"+driver.getTitle());
+    assertTrue(homePage.compare("Jose7"));
   }
+
+
 }
