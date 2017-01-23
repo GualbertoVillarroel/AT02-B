@@ -1,14 +1,12 @@
 package org.funjala.automation.web.mach2.steps.login;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.funjala.automation.web.common.drivers.Driver;
-import org.funjala.automation.web.pages.mach2.home.OEHomePage;
-import org.funjala.automation.web.pages.mach2.login.OELoginPage;
-import org.funjala.automation.web.pages.pivotal.home.HomePage;
+import org.funjala.automation.web.pages.erp.home.OEHomePage;
+import org.funjala.automation.web.pages.erp.login.OELoginPage;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Map;
@@ -43,5 +41,8 @@ public class LoginOE {
   @Then("^I expect redirect to the main page$")
   public void iExpectRedirectToTheMainPage() throws Throwable {
     assertTrue(homePage.compare("Jose7"));
+    homePage.clickUserAccount();
+    homePage.clickLogOut();
+    driver.quit();
   }
 }

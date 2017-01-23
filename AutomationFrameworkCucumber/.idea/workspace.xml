@@ -369,7 +369,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6248575">
+    <splitter split-orientation="horizontal" split-proportion="0.5037594">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="loginOE.feature" pinned="false" current-in-tab="false">
@@ -382,25 +382,30 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="LoginOE.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="LoginOE.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/mach2/src/test/java/org/funjala/automation/web/mach2/steps/login/LoginOE.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="302">
-                  <caret line="39" column="38" lean-forward="false" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+                <state relative-caret-position="438">
+                  <caret line="45" column="18" lean-forward="false" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
                   <folding>
-                    <element signature="e#1194#1195#0" expanded="true" />
-                    <element signature="e#1237#1238#0" expanded="true" />
+                    <element signature="e#1089#1090#0" expanded="true" />
+                    <element signature="e#1132#1133#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="OEHomePage.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/mach2/home/OEHomePage.java">
+          <file leaf-file-name="OEHomePage.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/erp/home/OEHomePage.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="22" column="40" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="40" />
-                  <folding />
+                <state relative-caret-position="483">
+                  <caret line="38" column="19" lean-forward="false" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+                  <folding>
+                    <element signature="e#960#961#0" expanded="true" />
+                    <element signature="e#989#990#0" expanded="true" />
+                    <element signature="e#1019#1020#0" expanded="true" />
+                    <element signature="e#1043#1044#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -422,7 +427,7 @@
           <file leaf-file-name="LoginStepsDefinitions.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/mach2/src/test/java/org/funjala/automation/web/mach2/steps/login/LoginStepsDefinitions.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="279">
+                <state relative-caret-position="265">
                   <caret line="37" column="14" lean-forward="false" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
                   <folding />
                 </state>
@@ -453,7 +458,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/help/LearnMorePage.java" />
         <option value="$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/help/FeedBackPage.java" />
         <option value="$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/pivotal/help/HelpPageMain.java" />
         <option value="$PROJECT_DIR$/pivotaltracker/src/resource/features/login/loginPivotal.feature" />
@@ -503,6 +507,7 @@
         <option value="$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/mach2/login/OELoginPage.java" />
         <option value="$PROJECT_DIR$/mach2/src/test/java/org/funjala/automation/web/mach2/steps/login/LoginStepsDefinitions.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/org/funjala/automation/web/common/drivers/Driver.java" />
+        <option value="$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/erp/home/OEHomePage.java" />
         <option value="$PROJECT_DIR$/mach2/src/test/java/org/funjala/automation/web/mach2/steps/login/LoginOE.java" />
       </list>
     </option>
@@ -730,7 +735,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="login" />
+              <option name="myItemId" value="menu" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -764,7 +769,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mach2" />
+              <option name="myItemId" value="erp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomationFrameworkCucumber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomationFrameworkCucumber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="erp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1974,7 +2013,7 @@
       <workItem from="1484689455849" duration="6139000" />
       <workItem from="1484841952830" duration="12937000" />
       <workItem from="1484920142486" duration="733000" />
-      <workItem from="1485169124861" duration="2306000" />
+      <workItem from="1485169124861" duration="3692000" />
     </task>
     <servers />
   </component>
@@ -2011,7 +2050,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63267000" />
+    <option name="totallyTimeSpent" value="64653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1292" height="1000" extended-state="0" />
@@ -2029,10 +2068,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39331028" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34140715" sideWeight="0.49713466" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34140715" sideWeight="0.49713466" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28814936" sideWeight="0.4811321" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24431819" sideWeight="0.4811321" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -2323,7 +2362,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/mach2/login/OELoginPage.java">
+    <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/erp/login/OELoginPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="28" column="54" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="54" />
@@ -2381,7 +2420,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mach2/src/test/java/org/funjala/automation/web/mach2/steps/login/LoginStepsDefinitions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
+        <state relative-caret-position="265">
           <caret line="37" column="14" lean-forward="false" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
           <folding />
         </state>
@@ -2395,22 +2434,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mach2/src/test/java/org/funjala/automation/web/mach2/steps/login/LoginOE.java">
+    <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/erp/home/OEHomePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="39" column="38" lean-forward="false" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+        <state relative-caret-position="483">
+          <caret line="38" column="19" lean-forward="false" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
           <folding>
-            <element signature="e#1194#1195#0" expanded="true" />
-            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#989#990#0" expanded="true" />
+            <element signature="e#1019#1020#0" expanded="true" />
+            <element signature="e#1043#1044#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/src/main/java/org/funjala/automation/web/pages/mach2/home/OEHomePage.java">
+    <entry file="file://$PROJECT_DIR$/mach2/src/test/java/org/funjala/automation/web/mach2/steps/login/LoginOE.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="40" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="40" />
-          <folding />
+        <state relative-caret-position="438">
+          <caret line="45" column="18" lean-forward="false" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+          <folding>
+            <element signature="e#1089#1090#0" expanded="true" />
+            <element signature="e#1132#1133#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
