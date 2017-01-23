@@ -1,9 +1,7 @@
-package org.funjala.automation.web.pages.mach2.login;
+package org.funjala.automation.web.pages.erp.login;
 
 import org.funjala.automation.web.model.erp.login.LoginModel;
-import org.funjala.automation.web.pages.mach2.home.OEHomePage;
-import org.funjala.automation.web.pages.pivotal.home.HomePage;
-import org.openqa.selenium.Keys;
+import org.funjala.automation.web.pages.erp.home.OEHomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

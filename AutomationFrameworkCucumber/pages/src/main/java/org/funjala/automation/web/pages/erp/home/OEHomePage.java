@@ -1,4 +1,4 @@
-package org.funjala.automation.web.pages.mach2.home;
+package org.funjala.automation.web.pages.erp.home;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,8 +23,19 @@ public class OEHomePage {
   @FindBy(xpath = "//tr[1]/td/span/span")
   WebElement userAccount;
 
+  @FindBy(xpath = "//li[4]/a[text()='Log out']")
+  WebElement logOut;
+
   public boolean compare(String user) {
     wait.until(ExpectedConditions.visibilityOf(userAccount));
     return userAccount.getText().equalsIgnoreCase(user);
+  }
+
+  public void clickUserAccount(){
+    userAccount.click();
+  }
+
+  public void clickLogOut(){
+    logOut.click();
   }
 }
