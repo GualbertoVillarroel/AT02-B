@@ -16,6 +16,9 @@ public class Driver {
   private static Driver instance;
   public static WebDriver driver;
   private WebDriver chrome;
+  public static final String OpenERP = "urlOE";
+  public static final String Mach2 = "urlMach2";
+  public static final String Url = "url";
 
   private Driver() {
   }
@@ -26,17 +29,27 @@ public class Driver {
    *
    * @return the driver of that browser was initialize.
    */
-  public WebDriver openBrowser() throws IOException {
+  public WebDriver openBrowser(String urlPage) throws IOException {
+    ReadObject object = new ReadObject();
+    Properties configurationObj = object.getObjectRepository();
     if (chrome == null) {
-      ReadObject object = new ReadObject();
-      Properties configurationObj = object.getObjectRepository();
       driver = new WebDriverFactory(System.getProperty("browser")).getDriver();
       driver.manage().timeouts().implicitlyWait(14, TimeUnit.SECONDS);
       driver.manage().window().maximize();
-      driver.get(configurationObj.getProperty("urlOE"));
       chrome = driver;
     } else if (chrome != null) {
       driver = chrome;
+    }
+
+    if (urlPage.equals(OpenERP)) {
+      driver.navigate().refresh();
+      driver.get(configurationObj.getProperty(OpenERP));
+    } else if (urlPage.equals(Mach2)) {
+      driver.navigate().refresh();
+      driver.get(configurationObj.getProperty(Mach2));
+    } else {
+      driver.navigate().refresh();
+      driver.get(configurationObj.getProperty(Url));
     }
     return driver;
   }

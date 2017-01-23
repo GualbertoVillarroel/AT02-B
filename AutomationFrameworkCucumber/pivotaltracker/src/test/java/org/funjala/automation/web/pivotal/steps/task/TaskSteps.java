@@ -41,7 +41,7 @@ public class TaskSteps {
   @Given("^I am on Pivotal Tracker page$")
   public void onPivotalTrackerPage() throws IOException {
     log.info("Step", "I am on Pivotal Tracker page", "Going to pivotal tracker page");
-    driver = Driver.getDriver().openBrowser();
+    driver = Driver.getDriver().openBrowser(Driver.Url);
     login = new LoginPage(driver);
   }
 
