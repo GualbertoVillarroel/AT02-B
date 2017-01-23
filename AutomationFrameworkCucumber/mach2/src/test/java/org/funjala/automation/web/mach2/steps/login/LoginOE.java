@@ -1,4 +1,4 @@
-package org.funjala.automation.web.mach2.steps;
+package org.funjala.automation.web.mach2.steps.login;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -23,8 +23,8 @@ public class LoginOE {
   OELoginPage login;
   OEHomePage homePage;
 
-  @Given("^I navigate to OpenERP web page$")
-  public void iNavigateToOpenERPWebPage() throws Throwable {
+  @Given("^I navigate to ([^\"]*) web page$")
+  public void iNavigateToOpenERPWebPage(String page) throws Throwable {
     driver = Driver.getDriver().openBrowser();
     login = new OELoginPage(driver);
   }
@@ -44,6 +44,4 @@ public class LoginOE {
   public void iExpectRedirectToTheMainPage() throws Throwable {
     assertTrue(homePage.compare("Jose7"));
   }
-
-
 }
