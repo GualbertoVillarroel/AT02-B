@@ -21,7 +21,7 @@ public class LoginStepsDefinitions {
 
   @Given("^I am on Mach 2 page$")
   public void onPivotalTrackerPage() throws IOException {
-    System.setProperty("webdriver.chrome.driver", "./tools/chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "../tools/chromedriver.exe");
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     driver.manage().window().maximize();
