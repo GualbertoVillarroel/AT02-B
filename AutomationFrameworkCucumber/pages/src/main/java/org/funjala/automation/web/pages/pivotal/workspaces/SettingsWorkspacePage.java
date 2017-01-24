@@ -52,7 +52,7 @@ public class SettingsWorkspacePage {
 
   /**
    * Method to confirm delete a workspace pop up.
-   * @return HomePage class with this driver.
+   * @return DashboardPage class with this driver.
    */
   public HomePage confirmDeleteWorkspace() {
     wait.until(ExpectedConditions.elementToBeClickable(deleteButton));

@@ -39,12 +39,12 @@ public class LoginPage {
     passwordTextField.sendKeys(password);
   }
 
-  public HomePage clickNextButton() {
+  public DashboardPage clickNextButton() {
     nextSigningButton.click();
-    return new HomePage(driver);
+    return new DashboardPage(driver);
   }
 
-  private HomePage loginAs(String userName, String password) {
+  private DashboardPage loginAs(String userName, String password) {
     setUsernameTextField(userName);
     setPasswordTextField(password);
     return clickNextButton();
