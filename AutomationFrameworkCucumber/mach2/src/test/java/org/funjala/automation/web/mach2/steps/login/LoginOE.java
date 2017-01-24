@@ -23,7 +23,7 @@ public class LoginOE {
 
   @Given("^I navigate to ([^\"]*) web page$")
   public void iNavigateToOpenERPWebPage(String page) throws Throwable {
-    driver = Driver.getDriver().openBrowser();
+    driver = Driver.getDriver().openBrowser(Driver.OpenERP);
     login = new OELoginPage(driver);
   }
 
@@ -43,6 +43,5 @@ public class LoginOE {
     assertTrue(homePage.compare("Jose7"));
     homePage.clickUserAccount();
     homePage.clickLogOut();
-    driver.quit();
   }
 }

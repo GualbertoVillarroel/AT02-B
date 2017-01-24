@@ -26,7 +26,7 @@ public class loginStepDefinitions {
 
   @Given("^I navigate to Pivotal Tracker Website$")
   public void openPivotalTracker() throws IOException {
-    driver = Driver.getDriver().openBrowser();
+    driver = Driver.getDriver().openBrowser(Driver.Url);
     login = new LoginPage(driver);
   }
 
