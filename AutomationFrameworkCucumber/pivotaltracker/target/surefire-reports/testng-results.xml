@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="All Features" duration-ms="162482" started-at="2017-01-24T09:12:28Z" finished-at="2017-01-24T09:15:10Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:org.funjala.automation.web.pivotal.Runner@18be83e4]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Login on Pivotal and Tasks" duration-ms="162482" started-at="2017-01-24T09:12:28Z" finished-at="2017-01-24T09:15:10Z">
+      <class name="org.funjala.automation.web.pivotal.Runner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:org.funjala.automation.web.pivotal.Runner@18be83e4]" name="setUpClass" is-config="true" duration-ms="390" started-at="2017-01-24T09:12:28Z" finished-at="2017-01-24T09:12:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:org.funjala.automation.web.pivotal.Runner@18be83e4]" name="feature" duration-ms="22400" started-at="2017-01-24T09:12:28Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2017-01-24T09:12:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Sign-In to Pivotal Tracker as a newly created user]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:org.funjala.automation.web.pivotal.Runner@18be83e4]" name="feature" duration-ms="139521" started-at="2017-01-24T09:12:51Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2017-01-24T09:15:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Task]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:org.funjala.automation.web.pivotal.Runner@18be83e4]" name="tearDownClass" is-config="true" duration-ms="44" started-at="2017-01-24T09:15:10Z" finished-at="2017-01-24T09:15:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- org.funjala.automation.web.pivotal.Runner -->
+    </test> <!-- Login on Pivotal and Tasks -->
+  </suite> <!-- All Features -->
+</testng-results>

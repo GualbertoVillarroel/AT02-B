@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+<title>Cucumber Reports (no 1) - Steps Overview</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+                <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation"     class="active" ><a href="overview-steps.html">Steps</a></li>
+                <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+    
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+              <th>Number</th>
+            <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>PivotalTracker-CucumberAT02</td>
+              <td>1</td>
+            <td>24 Jan 2017, 09:15</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+      </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Steps Statistics</h2>
+          <p>The following graph shows step statistics for this build. Below list is based on results.
+ step does not provide information about result then is not listed below.
+ Additionally @Before and @After are not counted because they are part of the scenarios, not steps.</p>
+      </div>
+</div>
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table id="tablesorter" class="stats-table table-hover">
+
+        <thead>
+          <tr class="header">
+            <th>Implementation</th>
+            <th>Occurrences</th>
+            <th>Duration</th>
+            <th>Average</th>
+            <th>Ratio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+                      <tr>
+              <td class="location">Hooks.afterScenario(Scenario)</td>
+              <td>7</td>
+              <td class="duration" data-value="390800">000ms</td>
+              <td class="duration" data-value="55828">000ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Hooks.beforeScenario(Scenario)</td>
+              <td>7</td>
+              <td class="duration" data-value="87557400">087ms</td>
+              <td class="duration" data-value="12508200">012ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.addATaskWithXName(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="549799400">549ms</td>
+              <td class="duration" data-value="549799400">549ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.addMultipleTasksWithSameName(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="1218873600">1s 218ms</td>
+              <td class="duration" data-value="1218873600">1s 218ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.clickOnSaveStoryWithTasks()</td>
+              <td>1</td>
+              <td class="duration" data-value="344338000">344ms</td>
+              <td class="duration" data-value="344338000">344ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.createAStoryWithXName(String)</td>
+              <td>6</td>
+              <td class="duration" data-value="33106582000">33s 106ms</td>
+              <td class="duration" data-value="5517763666">5s 517ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.createProject(String)</td>
+              <td>6</td>
+              <td class="duration" data-value="22015600200">22s 015ms</td>
+              <td class="duration" data-value="3669266700">3s 669ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.createTasks(String,String)</td>
+              <td>3</td>
+              <td class="duration" data-value="1669528300">1s 669ms</td>
+              <td class="duration" data-value="556509433">556ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.deleteTask(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="2185576900">2s 185ms</td>
+              <td class="duration" data-value="2185576900">2s 185ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.doneTask(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="341869400">341ms</td>
+              <td class="duration" data-value="341869400">341ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.editTask(String,String)</td>
+              <td>1</td>
+              <td class="duration" data-value="676112500">676ms</td>
+              <td class="duration" data-value="676112500">676ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.iExpectAnAlertMessage()</td>
+              <td>1</td>
+              <td class="duration" data-value="240267100">240ms</td>
+              <td class="duration" data-value="240267100">240ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.iPressAddNewTaskWithoutName()</td>
+              <td>1</td>
+              <td class="duration" data-value="149726900">149ms</td>
+              <td class="duration" data-value="149726900">149ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.logout(Scenario)</td>
+              <td>6</td>
+              <td class="duration" data-value="57050112500">57s 050ms</td>
+              <td class="duration" data-value="9508352083">9s 508ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.onPivotalTrackerPage()</td>
+              <td>6</td>
+              <td class="duration" data-value="13142680300">13s 142ms</td>
+              <td class="duration" data-value="2190446716">2s 190ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.putNameAndPressNextButton(String)</td>
+              <td>6</td>
+              <td class="duration" data-value="661666800">661ms</td>
+              <td class="duration" data-value="110277800">110ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.putPasswordAndPressSubmitButton(String)</td>
+              <td>6</td>
+              <td class="duration" data-value="3864783600">3s 864ms</td>
+              <td class="duration" data-value="644130600">644ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.selectAccount(String)</td>
+              <td>6</td>
+              <td class="duration" data-value="724682000">724ms</td>
+              <td class="duration" data-value="120780333">120ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.taskCalledXShouldBeCreated(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="273436800">273ms</td>
+              <td class="duration" data-value="273436800">273ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.taskDeletedVerification(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="384282200">384ms</td>
+              <td class="duration" data-value="384282200">384ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.taskEditVerification(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="250389700">250ms</td>
+              <td class="duration" data-value="250389700">250ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.verifyTasksWasCreate(int,String)</td>
+              <td>1</td>
+              <td class="duration" data-value="153008000">153ms</td>
+              <td class="duration" data-value="153008000">153ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TaskSteps.verifyTheTaskIsDone(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="253398100">253ms</td>
+              <td class="duration" data-value="253398100">253ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">loginStepDefinitions.aNewPasswordFieldAppears()</td>
+              <td>1</td>
+              <td class="duration" data-value="807009200">807ms</td>
+              <td class="duration" data-value="807009200">807ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">loginStepDefinitions.aValidPasswordIsSet(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="478713400">478ms</td>
+              <td class="duration" data-value="478713400">478ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">loginStepDefinitions.openPivotalTracker()</td>
+              <td>1</td>
+              <td class="duration" data-value="7989286900">7s 989ms</td>
+              <td class="duration" data-value="7989286900">7s 989ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">loginStepDefinitions.redirectToPivotalTrackerDashboard()</td>
+              <td>1</td>
+              <td class="duration" data-value="12725036800">12s 725ms</td>
+              <td class="duration" data-value="12725036800">12s 725ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">loginStepDefinitions.signInButtonIsPressed()</td>
+              <td>1</td>
+              <td class="duration" data-value="182449300">182ms</td>
+              <td class="duration" data-value="182449300">182ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">loginStepDefinitions.validUsernameOrEmailIsSet(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="83909600">083ms</td>
+              <td class="duration" data-value="83909600">083ms</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                  </tbody>
+
+        <tfoot class="total">
+          <tr>
+            <td>29</td>
+            <td>78</td>
+            <td class="duration">2m 41s 611ms</td>
+            <td class="duration">2s 071ms</td>
+            <td>Totals</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>

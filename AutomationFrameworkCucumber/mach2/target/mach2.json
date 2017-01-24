@@ -1,0 +1,160 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 2,
+        "name": "Sign-in to Mach 2 with valid username and password.",
+        "description": "",
+        "id": "login-into-mach-2;sign-in-to-mach-2-with-valid-username-and-password.",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6655156500,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "I am on Mach 2 page",
+            "match": {
+              "location": "LoginStepsDefinitions.onPivotalTrackerPage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 94224800,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I put a at02 in user textfield",
+            "match": {
+              "arguments": [
+                {
+                  "val": "at02",
+                  "offset": 8
+                }
+              ],
+              "location": "LoginStepsDefinitions.putNameAndPressNextButton(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 992890800,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I put a Automation123 in password textfield and press Submit button",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Automation123",
+                  "offset": 8
+                }
+              ],
+              "location": "LoginStepsDefinitions.putPasswordAndPressSubmitButton(String)"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Login into Mach 2",
+    "description": "",
+    "id": "login-into-mach-2",
+    "keyword": "Feature",
+    "uri": "login.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 2,
+        "name": "Sign-in to OpenERP with a valid account",
+        "description": "",
+        "id": "sign-in-to-openerp;sign-in-to-openerp-with-a-valid-account",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2995192500,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "I navigate to OpenERP web page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "OpenERP",
+                  "offset": 14
+                }
+              ],
+              "location": "LoginOE.iNavigateToOpenERPWebPage(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 115209300,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I put the next data",
+            "match": {
+              "location": "LoginOE.iPutTheNextData(String,String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "username",
+                  "jose7"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "password",
+                  "jose7"
+                ],
+                "line": 6
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 608796400,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I press the button submit",
+            "match": {
+              "location": "LoginOE.iPressTheButtonSubmit()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1965741500,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I expect redirect to the main page",
+            "match": {
+              "location": "LoginOE.iExpectRedirectToTheMainPage()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Sign-in to OpenERP",
+    "description": "",
+    "id": "sign-in-to-openerp",
+    "keyword": "Feature",
+    "uri": "loginOE.feature"
+  }
+]

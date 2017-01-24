@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="All Features" duration-ms="18015" started-at="2017-01-24T09:15:16Z" finished-at="2017-01-24T09:15:34Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:org.funjala.automation.web.mach2.Runner@29ee9faa]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Login on Pivotal and Tasks" duration-ms="18015" started-at="2017-01-24T09:15:16Z" finished-at="2017-01-24T09:15:34Z">
+      <class name="org.funjala.automation.web.mach2.Runner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:org.funjala.automation.web.mach2.Runner@29ee9faa]" name="setUpClass" is-config="true" duration-ms="300" started-at="2017-01-24T09:15:16Z" finished-at="2017-01-24T09:15:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:org.funjala.automation.web.mach2.Runner@29ee9faa]" name="feature" duration-ms="10830" started-at="2017-01-24T09:15:17Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2017-01-24T09:15:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Login into Mach 2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:org.funjala.automation.web.mach2.Runner@29ee9faa]" name="feature" duration-ms="6779" started-at="2017-01-24T09:15:27Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2017-01-24T09:15:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Sign-in to OpenERP]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:org.funjala.automation.web.mach2.Runner@29ee9faa]" name="tearDownClass" is-config="true" duration-ms="18" started-at="2017-01-24T09:15:34Z" finished-at="2017-01-24T09:15:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- org.funjala.automation.web.mach2.Runner -->
+    </test> <!-- Login on Pivotal and Tasks -->
+  </suite> <!-- All Features -->
+</testng-results>
