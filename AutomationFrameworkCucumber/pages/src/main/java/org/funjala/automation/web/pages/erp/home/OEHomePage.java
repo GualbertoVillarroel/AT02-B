@@ -1,6 +1,7 @@
 package org.funjala.automation.web.pages.erp.home;
 
 import org.funjala.automation.web.model.erp.home.HomeModel;
+import org.funjala.automation.web.pages.erp.search.OESearch;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -46,6 +47,10 @@ public class OEHomePage {
 
   public void clickHumanResources() {
     humanResourcesButton.click();
+  }
+
+  public OESearch oeSearch(){
+    return new OESearch(driver);
   }
 
 }
