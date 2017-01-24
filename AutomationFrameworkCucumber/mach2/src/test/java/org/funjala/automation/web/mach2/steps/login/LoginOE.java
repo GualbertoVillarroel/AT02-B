@@ -7,6 +7,7 @@ import cucumber.api.java.en.When;
 import org.funjala.automation.web.common.drivers.Driver;
 import org.funjala.automation.web.pages.erp.home.OEHomePage;
 import org.funjala.automation.web.pages.erp.login.OELoginPage;
+import org.funjala.automation.web.pages.erp.search.OESearch;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Map;
@@ -20,6 +21,9 @@ public class LoginOE {
   WebDriver driver;
   OELoginPage login;
   OEHomePage homePage;
+
+  OESearch oeSearch;
+
 
   @Given("^I navigate to ([^\"]*) web page$")
   public void iNavigateToOpenERPWebPage(String page) throws Throwable {
@@ -40,6 +44,10 @@ public class LoginOE {
 
   @Then("^I expect redirect to the main page$")
   public void iExpectRedirectToTheMainPage() throws Throwable {
+    homePage.clickHumanResources();
+    oeSearch=homePage.oeSearch();
+    oeSearch.clickSearchArrow();
+    oeSearch.clickAdvancedSearch();
     assertTrue(homePage.compare("Jose7"));
     homePage.clickUserAccount();
     homePage.clickLogOut();
