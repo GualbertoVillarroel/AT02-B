@@ -1,5 +1,6 @@
 package org.funjala.automation.web.pages.erp.home;
 
+import org.funjala.automation.web.model.erp.home.HomeModel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,22 +21,31 @@ public class OEHomePage {
     wait = new WebDriverWait(driver, 10);
   }
 
-  @FindBy(xpath = "//tr[1]/td/span/span")
+  @FindBy(xpath = HomeModel.userAccount)
   WebElement userAccount;
 
-  @FindBy(xpath = "//li[4]/a[text()='Log out']")
+  @FindBy(xpath = HomeModel.logOut)
   WebElement logOut;
+
+  @FindBy(xpath = HomeModel.humanResources)
+  WebElement humanResourcesButton;
+
 
   public boolean compare(String user) {
     wait.until(ExpectedConditions.visibilityOf(userAccount));
     return userAccount.getText().equalsIgnoreCase(user);
   }
 
-  public void clickUserAccount(){
+  public void clickUserAccount() {
     userAccount.click();
   }
 
-  public void clickLogOut(){
+  public void clickLogOut() {
     logOut.click();
   }
+
+  public void clickHumanResources() {
+    humanResourcesButton.click();
+  }
+
 }

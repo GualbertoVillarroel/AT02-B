@@ -10,6 +10,5 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
  @CucumberOptions(features = "src/test/resources/features/login/",
  format = {"json:target/mach2.json","html:target/mach2/mach2-cucumber"})
  public class Runner extends AbstractTestNGCucumberTests {
-
  }
 
