@@ -1,7 +1,7 @@
 package org.funjala.automation.web.pages.mach2.sidebar;
 
-import org.funjala.automation.web.model.mach2.SideBarModel;
-import org.funjala.automation.web.pages.mach2.content.MyDashboard;
+import org.funjala.automation.web.model.mach2.sidebar.SideBarModel;
+import org.funjala.automation.web.pages.mach2.container.MyDashboard;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

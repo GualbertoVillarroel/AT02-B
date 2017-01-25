@@ -1,6 +1,7 @@
-package org.funjala.automation.web.pages.mach2;
+package org.funjala.automation.web.pages.mach2.login;
 
-import org.funjala.automation.web.model.mach2.LoginModel;
+import org.funjala.automation.web.model.mach2.login.LoginModel;
+import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,12 +40,12 @@ public class LoginPage {
     passwordTextField.sendKeys(password);
   }
 
-  public DashboardPage clickNextButton() {
+  public TopMenuPage clickNextButton() {
     nextSigningButton.click();
-    return new DashboardPage(driver);
+    return new TopMenuPage(driver);
   }
 
-  private DashboardPage loginAs(String userName, String password) {
+  private TopMenuPage loginAs(String userName, String password) {
     setUsernameTextField(userName);
     setPasswordTextField(password);
     return clickNextButton();
