@@ -27,6 +27,9 @@ public class WidgetPage {
   @FindBy(css = WidgetModel.erpOption)
   private WebElement erpOption;
 
+  @FindBy(xpath = WidgetModel.eiOption)
+  private WebElement eiOption;
+
   @FindBy(xpath = WidgetModel.managerInput)
   private List<WebElement> managerInput;
 
@@ -35,7 +38,6 @@ public class WidgetPage {
 
   @FindBy(xpath = WidgetModel.listElementTable)
   private List<WebElement> listElementTable;
-
 
 
 //Corregir esto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-----------------------------------------------------
@@ -78,6 +80,16 @@ public class WidgetPage {
 
   //hasta aqui!!!!!!!!!!!---------------------------------------------------------------------------------
 
+  @FindBy(xpath = WidgetModel.menuDivisionsButton)
+  WebElement menuDivisionsButton;
+
+  @FindBy(xpath = WidgetModel.selectorDivisions)
+  WebElement selectorDivisions;
+
+  @FindBy(xpath = WidgetModel.accountItem)
+  WebElement accountItem;
+
+
   public WidgetPage(WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);
@@ -88,6 +100,31 @@ public class WidgetPage {
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-component='widget']")));
     driver.findElement(By.xpath("//div[@class='name' and text()=" + "\'" + type + "\'" + "]")).click();
   }
+
+  public void setDivisionName(String divisionName) {
+    wait.until(ExpectedConditions.elementToBeClickable(menuDivisionsButton));
+    menuDivisionsButton.click();
+    selectorDivisions.findElement(By.xpath("//div[text()= '" + divisionName + "']"));
+    accountItem = selectorDivisions.findElement(By.xpath("//div[text()= '" + divisionName + "']"));
+    accountItem.click();
+    menuDivisionsButton.click();
+  }
+
+  public void clickOnService(String service) {
+    driver.findElement(By.xpath("//span[text()=" + "\'" + service + "\'" + "]")).click();
+  }
+
+  public void selectEiOption() {
+    wait.until(ExpectedConditions.visibilityOf(eiOption));
+    wait.until(ExpectedConditions.elementToBeClickable(eiOption));
+    eiOption.click();
+  }
+
+  public void selectErpOption() {
+    wait.until(ExpectedConditions.elementToBeClickable(erpOption));
+    erpOption.click();
+  }
+
 
   public void setManagerName(String managerName) {
     wait.until(ExpectedConditions.visibilityOf(dropdownIcon));
@@ -107,14 +144,6 @@ public class WidgetPage {
     dropdownIcon.click();
   }
 
-  public void clickOnService(String service) {
-    driver.findElement(By.xpath("//span[text()=" + "\'" + service + "\'" + "]")).click();
-  }
-
-  public void selectErpOption() {
-    wait.until(ExpectedConditions.elementToBeClickable(erpOption));
-    erpOption.click();
-  }
 
   public int verifyCant(String managerName) {
     int cant = 0;

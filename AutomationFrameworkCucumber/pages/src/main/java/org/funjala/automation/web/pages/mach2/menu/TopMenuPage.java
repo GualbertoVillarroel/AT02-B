@@ -90,4 +90,8 @@ public class TopMenuPage {
     wait.until(ExpectedConditions.elementToBeClickable(jalaItem));
     jalaItem.click();
   }
+
+  public BoardPage goToBoardPage(){
+    return new BoardPage(driver);
+  }
 }
