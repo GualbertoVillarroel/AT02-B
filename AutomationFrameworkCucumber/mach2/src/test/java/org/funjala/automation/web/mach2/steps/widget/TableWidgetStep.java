@@ -10,6 +10,7 @@ import org.funjala.automation.web.pages.erp.login.OELoginPage;
 import org.funjala.automation.web.pages.erp.search.OESearch;
 import org.funjala.automation.web.pages.mach2.login.LoginPage;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
+import org.funjala.automation.web.pages.mach2.sidebar.SideBarPage;
 import org.funjala.automation.web.pages.mach2.widget.WidgetPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -86,6 +87,8 @@ public class TableWidgetStep {
     System.out.println(">>>>>>>>>>>>>>>>>>>");
     System.out.println(actualResult);
     System.out.println(">>>>>>>>>>>>>>>>>>>");
+    SideBarPage sideBarPage = topMenuPage.goToSidebar();
+    sideBarPage.deleteAllBoards();
 
     //Login OPEN ERP
 
