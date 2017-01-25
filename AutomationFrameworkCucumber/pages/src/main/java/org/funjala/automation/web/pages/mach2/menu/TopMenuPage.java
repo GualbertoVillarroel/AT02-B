@@ -28,10 +28,10 @@ public class TopMenuPage {
   @FindBy(css = AccountModel.logOutButton)
   private WebElement logOutButton;
 
-  @FindBy(css = "a.dash.tablet.computer.only.ui.needsclick.dropdown.item")
+  @FindBy(css = TopMenuModel.menuBoard)
   private WebElement menuBoard;
 
-  @FindBy(xpath = "//div/a[@class='brand item']/child::img")
+  @FindBy(xpath = TopMenuModel.jalaItem)
   private WebElement jalaItem;
 
   @FindBy(xpath = TopMenuModel.addBoard)

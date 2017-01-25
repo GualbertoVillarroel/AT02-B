@@ -1,6 +1,6 @@
 package org.funjala.automation.web.pages.mach2.widget;
 
-import org.funjala.automation.web.model.mach2.container.WidgetModel;
+import org.funjala.automation.web.model.mach2.widget.WidgetModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
