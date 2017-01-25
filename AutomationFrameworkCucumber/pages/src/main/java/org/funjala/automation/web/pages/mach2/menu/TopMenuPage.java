@@ -3,8 +3,8 @@ package org.funjala.automation.web.pages.mach2.menu;
 import org.funjala.automation.web.model.mach2.menu.AccountModel;
 import org.funjala.automation.web.model.mach2.menu.TopMenuModel;
 import org.funjala.automation.web.pages.mach2.board.BoardPage;
-import org.funjala.automation.web.pages.mach2.widget.Widget;
 import org.funjala.automation.web.pages.mach2.sidebar.SideBarPage;
+import org.funjala.automation.web.pages.mach2.widget.WidgetPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -66,10 +66,10 @@ public class TopMenuPage {
     return new SideBarPage(driver);
   }
 
-  public Widget addNewWidget() {
+  public WidgetPage addNewWidget() {
     wait.until(ExpectedConditions.elementToBeClickable(addWidget));
     addWidget.click();
-    return new Widget(driver);
+    return new WidgetPage(driver);
   }
 
   public void addNewBoard() {
