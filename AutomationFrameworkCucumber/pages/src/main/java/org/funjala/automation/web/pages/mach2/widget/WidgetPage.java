@@ -89,7 +89,9 @@ public class WidgetPage {
   @FindBy(xpath = WidgetModel.accountItem)
   WebElement accountItem;
 
-
+  @FindBy(xpath = WidgetModel.ListElementListWidget)
+  private List<WebElement>  listElementListWidget;
+  
   public WidgetPage(WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);
@@ -113,6 +115,33 @@ public class WidgetPage {
   public void clickOnService(String service) {
     driver.findElement(By.xpath("//span[text()=" + "\'" + service + "\'" + "]")).click();
   }
+
+  public void clickOnSpecificService(String specificService){
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"mach-wizard\"]//*[@class=\"wizard-provider-panel\"]")));
+    driver.findElement(By.xpath("//h4[@class='ui header' and text()=" + "\'" + specificService + "\'" + "]")).click();
+  }
+
+  public void clickOnSpecificCombobox() {
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"mach-wizard\"]/div/div[3]/div/div/div[2]/div[4]/div")));
+    driver.findElement(By.xpath("//*[@id=\"mach-wizard\"]/div/div[3]/div/div/div[2]/div[4]/div")).click();
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='field' and @data-key='Areas']//div[@class='item' and @data-value='33']")));
+    driver.findElement(By.xpath("//div[@class='field' and @data-key='Areas']//div[@class='item' and @data-value='33']")).click();
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='wizard']/div")));
+    driver.findElement(By.xpath("//*[@id='wizard']/div")).click();
+  }
+
+
+
+  public int verifyQtyEmployeeExperienceBySkillsCloud(String skillName) {
+    int cant = 0;
+    for (WebElement element : listElementListWidget ) {
+      if (element.getText().toUpperCase().contains(skillName.toUpperCase())) {
+        cant++;
+      }
+    }
+    return cant;
+  }
+
 
   public void selectEiOption() {
     wait.until(ExpectedConditions.visibilityOf(eiOption));
