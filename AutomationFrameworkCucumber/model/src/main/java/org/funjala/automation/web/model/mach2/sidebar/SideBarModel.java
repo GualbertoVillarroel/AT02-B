@@ -1,4 +1,4 @@
-package org.funjala.automation.web.model.mach2;
+package org.funjala.automation.web.model.mach2.sidebar;
 
 /**
  * Created by JorgeForero on 1/19/2017.

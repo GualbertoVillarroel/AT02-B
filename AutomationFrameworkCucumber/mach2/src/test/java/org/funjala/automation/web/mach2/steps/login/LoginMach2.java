@@ -3,8 +3,8 @@ package org.funjala.automation.web.mach2.steps.login;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.funjala.automation.web.common.drivers.Driver;
-import org.funjala.automation.web.pages.mach2.DashboardPage;
-import org.funjala.automation.web.pages.mach2.LoginPage;
+import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
+import org.funjala.automation.web.pages.mach2.login.LoginPage;
 import org.funjala.automation.web.pages.mach2.menu.TopMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class LoginMach2 {
   WebDriver driver;
-  DashboardPage dashboardPage;
+  TopMenuPage topMenuPage;
   LoginPage loginPage;
   WebDriverWait wait;
 
@@ -35,8 +35,8 @@ public class LoginMach2 {
   @And("^I put a ([^\"]*) in password textfield and press Submit button$")
   public void putPasswordAndPressSubmitButton(String password) {
     loginPage.setPasswordTextField(password);
-    dashboardPage = loginPage.clickNextButton();
-    TopMenu topMenu = dashboardPage.goToTopMenu();
+    topMenuPage = loginPage.clickNextButton();
+    TopMenu topMenu = topMenuPage.goToTopMenu();
     topMenu.clickOnLogOut();
   }
 }

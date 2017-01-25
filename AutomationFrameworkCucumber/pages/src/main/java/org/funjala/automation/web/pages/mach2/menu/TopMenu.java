@@ -1,7 +1,7 @@
 package org.funjala.automation.web.pages.mach2.menu;
 
-import org.funjala.automation.web.model.mach2.HomeModel;
-import org.funjala.automation.web.model.mach2.TopMenuModel;
+import org.funjala.automation.web.model.mach2.menu.TopMenuModel;
+import org.funjala.automation.web.model.mach2.menu.AccountModel;
 import org.funjala.automation.web.pages.mach2.BoardPage;
 import org.funjala.automation.web.pages.mach2.sidebar.SideBar;
 import org.openqa.selenium.WebDriver;
@@ -18,10 +18,10 @@ public class TopMenu {
   private WebDriver driver;
   private WebDriverWait wait;
 
-  @FindBy(css = TopMenuModel.userMenu)
+  @FindBy(css = AccountModel.userMenu)
   private WebElement userMenu;
 
-  @FindBy(css = TopMenuModel.logOutButton)
+  @FindBy(css = AccountModel.logOutButton)
   private WebElement logOutButton;
 
   @FindBy(css = "a.dash.tablet.computer.only.ui.needsclick.dropdown.item")
@@ -33,7 +33,7 @@ public class TopMenu {
   @FindBy(xpath = "//div/a[@class='brand item']/child::img")
   private WebElement jalaItem;
 
-  @FindBy(css = HomeModel.menuIcon)
+  @FindBy(css = TopMenuModel.menuIcon)
   private WebElement menuIcon;
 
 

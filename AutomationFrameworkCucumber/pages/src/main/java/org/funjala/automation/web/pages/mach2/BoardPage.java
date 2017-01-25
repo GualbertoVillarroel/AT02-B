@@ -1,6 +1,6 @@
 package org.funjala.automation.web.pages.mach2;
 
-import org.funjala.automation.web.pages.mach2.content.BoardOptions;
+import org.funjala.automation.web.pages.mach2.container.BoardOptions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

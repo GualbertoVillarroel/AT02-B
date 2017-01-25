@@ -5,9 +5,9 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import org.funjala.automation.web.common.drivers.Driver;
 import org.funjala.automation.web.pages.mach2.BoardPage;
-import org.funjala.automation.web.pages.mach2.DashboardPage;
-import org.funjala.automation.web.pages.mach2.LoginPage;
-import org.funjala.automation.web.pages.mach2.content.BoardOptions;
+import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
+import org.funjala.automation.web.pages.mach2.login.LoginPage;
+import org.funjala.automation.web.pages.mach2.container.BoardOptions;
 import org.funjala.automation.web.pages.mach2.menu.TopMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,7 +19,7 @@ import java.io.IOException;
  */
 public class DeleteBoard {
   WebDriver driver;
-  DashboardPage dashboardPage;
+  TopMenuPage topMenuPage;
   LoginPage loginPage;
   TopMenu topMenu;
   BoardPage boardPage;
@@ -41,12 +41,12 @@ public class DeleteBoard {
   @And("^I put (.*) as password and press LogIn button$")
   public void iPutXAsPasswordAndPressLogInButton(String password) {
     loginPage.setPasswordTextField(password);
-    dashboardPage = loginPage.clickNextButton();
+    topMenuPage = loginPage.clickNextButton();
   }
 
   @When("^I go to My Dashboard$")
   public void iGoToMyDashboard() {
-    topMenu = dashboardPage.goToTopMenu();
+    topMenu = topMenuPage.goToTopMenu();
     topMenu.clickJalaItem();
   }
 
