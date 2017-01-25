@@ -12,9 +12,9 @@ Feature: Add Table Widget
   Scenario: Add Table Widget with Employees Personal Information
     Given I have a board created
     And I click on Widget button
-    When I click on "List" button on Widget displayed
-    And I click on "Pivotal Tracker" service
+    When I click on "Table" button on Widget displayed
+    And I click on "Open ERP" service
     And I select an Option of Open ERP
     And I fill manager name on textfield as "David Angeles Cambom"
     And I click on save button
-#    Then I have a table widget with "David Angeles Cambom" filled
+    Then I have a table widget with "David Angeles Cambom" filled

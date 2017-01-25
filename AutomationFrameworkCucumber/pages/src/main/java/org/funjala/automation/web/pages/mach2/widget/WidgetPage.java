@@ -2,7 +2,6 @@ package org.funjala.automation.web.pages.mach2.widget;
 
 import org.funjala.automation.web.model.mach2.container.WidgetModel;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,24 +9,32 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 /**
  * Created by DavidVallejos on 1/21/2017.
  */
-public class Widget {
+public class WidgetPage {
 
   private WebDriver driver;
   private WebDriverWait wait;
 
+  @FindBy(xpath = WidgetModel.dropdownIcon)
+  private WebElement dropdownIcon;
+
   @FindBy(css = WidgetModel.erpOption)
   private WebElement erpOption;
 
-  @FindBy(css = WidgetModel.managerInput)
-  private WebElement managerInput;
+  @FindBy(xpath = WidgetModel.managerInput)
+  private List<WebElement> managerInput;
 
   @FindBy(css = WidgetModel.saveButton)
   private WebElement saveButton;
 
-  public Widget(WebDriver driver) {
+  @FindBy(xpath = WidgetModel.listElementTable)
+  private List<WebElement> listElementTable;
+
+  public WidgetPage(WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);
     wait = new WebDriverWait(driver, 10);
@@ -48,11 +55,31 @@ public class Widget {
   }
 
   public void setManagerName(String managerName) {
-    wait.until(ExpectedConditions.elementToBeClickable(managerInput));
-    WebElement manager = driver.findElement(By.cssSelector("#mach-wizard > div > div.wizard-widget > div > div > div.ui.form.params-widget > div:nth-child(2) > div"));
-    manager.click();
-    managerInput.sendKeys(managerName);
-    managerInput.sendKeys(Keys.ENTER);
+    wait.until(ExpectedConditions.elementToBeClickable(dropdownIcon));
+    dropdownIcon.click();
+
+//    System.out.println(">>>>>>>>>>>>>>>>>>>");
+//    System.out.println(managerInput.size());
+//    System.out.println(">>>>>>>>>>>>>>>>>>>");
+
+    for (WebElement element : managerInput) {
+      if (element.getText().equals(managerName)) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+      }
+    }
+    dropdownIcon.click();
+  }
+
+  public int verifyCant(String managerName) {
+    int cant = 0;
+//    wait.until(ExpectedConditions.visibilityOf())
+    for (WebElement element : listElementTable) {
+      if (element.getText().equals(managerName)) {
+        cant++;
+      }
+    }
+    return cant;
   }
 
   public void clickSaveButton() {
