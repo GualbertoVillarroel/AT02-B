@@ -9,7 +9,9 @@ import org.funjala.automation.web.pages.erp.home.OEHomePage;
 import org.funjala.automation.web.pages.erp.login.OELoginPage;
 import org.funjala.automation.web.pages.erp.search.OESearch;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import java.util.List;
 import java.util.Map;
 
 import static org.testng.Assert.assertTrue;
@@ -44,12 +46,28 @@ public class LoginOE {
 
   @Then("^I expect redirect to the main page$")
   public void iExpectRedirectToTheMainPage() throws Throwable {
+    assertTrue(homePage.compare("Jose7"));
+    //search
     homePage.clickHumanResources();
-    oeSearch=homePage.oeSearch();
+    oeSearch = homePage.oeSearch();
     oeSearch.clickSearchArrow();
     oeSearch.clickAdvancedSearch();
-    assertTrue(homePage.compare("Jose7"));
-    homePage.clickUserAccount();
-    homePage.clickLogOut();
+    oeSearch.foundAndClickAdvancedFilterOptions("billable", "is false");
+    oeSearch.clickApplySearch();
+    oeSearch.clickSwitchList();
+    oeSearch.clickNumberElement();
+    oeSearch.clickQuantityButton();
+    oeSearch.clickUnlimitedOption();
+
+    List<WebElement> result = oeSearch.listOfAllElements();
+    System.out.println(result.size());
+    for (WebElement index: result) {
+      System.out.println(index.getText());
+    }
+
+
+
+//    homePage.clickUserAccount();
+//    homePage.clickLogOut();
   }
 }
