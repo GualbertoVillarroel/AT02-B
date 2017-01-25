@@ -1,4 +1,4 @@
-package org.funjala.automation.web.pages.mach2.container;
+package org.funjala.automation.web.pages.mach2.widget;
 
 import org.funjala.automation.web.model.mach2.container.WidgetModel;
 import org.openqa.selenium.By;
@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by DavidVallejos on 1/21/2017.
  */
-public class WidgetPage {
+public class Widget {
 
   private WebDriver driver;
   private WebDriverWait wait;
@@ -27,7 +27,7 @@ public class WidgetPage {
   @FindBy(css = WidgetModel.saveButton)
   private WebElement saveButton;
 
-  public WidgetPage(WebDriver driver) {
+  public Widget(WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);
     wait = new WebDriverWait(driver, 10);
@@ -49,7 +49,7 @@ public class WidgetPage {
 
   public void setManagerName(String managerName) {
     wait.until(ExpectedConditions.elementToBeClickable(managerInput));
-    WebElement manager = driver.findElement(By.cssSelector("#mach-wizard > div > div.wizard-container > div > div > div.ui.form.params-container > div:nth-child(2) > div"));
+    WebElement manager = driver.findElement(By.cssSelector("#mach-wizard > div > div.wizard-widget > div > div > div.ui.form.params-widget > div:nth-child(2) > div"));
     manager.click();
     managerInput.sendKeys(managerName);
     managerInput.sendKeys(Keys.ENTER);

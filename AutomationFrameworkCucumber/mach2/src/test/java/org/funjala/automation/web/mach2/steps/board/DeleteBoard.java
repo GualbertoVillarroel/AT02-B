@@ -2,26 +2,26 @@ package org.funjala.automation.web.mach2.steps.board;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.funjala.automation.web.common.drivers.Driver;
-import org.funjala.automation.web.pages.mach2.BoardPage;
+import org.funjala.automation.web.pages.mach2.board.BoardPage;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
 import org.funjala.automation.web.pages.mach2.login.LoginPage;
-import org.funjala.automation.web.pages.mach2.container.BoardOptions;
-import org.funjala.automation.web.pages.mach2.menu.TopMenu;
+import org.funjala.automation.web.pages.mach2.board.BoardOptions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 
-/**
- * Created by JorgeForero on 1/19/2017.
- */
+import static org.testng.Assert.assertTrue;
+
+
 public class DeleteBoard {
   WebDriver driver;
   TopMenuPage topMenuPage;
   LoginPage loginPage;
-  TopMenu topMenu;
   BoardPage boardPage;
   BoardOptions boardOptions;
   WebDriverWait wait;
@@ -46,13 +46,12 @@ public class DeleteBoard {
 
   @When("^I go to My Dashboard$")
   public void iGoToMyDashboard() {
-    topMenu = topMenuPage.goToTopMenu();
-    topMenu.clickJalaItem();
+    topMenuPage.clickJalaItem();
   }
 
-  @And("^I add a new Board$")
+  @And("^I add a New Board$")
   public void iAddANewBoard() {
-    boardPage = topMenu.clickAddBoard();
+    boardPage = topMenuPage.clickAddBoard();
   }
 
   @And("^I click on the Config icon$")
@@ -64,9 +63,9 @@ public class DeleteBoard {
   public void iSelectTheDeleteOption() {
     boardOptions.deleteBoardMach();
   }
-//
-//  @Then("^A new board should be displayed$")
-//  public void aNewWidgetShouldBeDisplayed() {
-//
-//  }
+
+  @Then("^The New Board should be deleted$")
+  public void theNewBoardShouldBeDeleted() {
+    assertTrue(driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[2]/div[2]/div[not(a)]")).isDisplayed());
+  }
 }

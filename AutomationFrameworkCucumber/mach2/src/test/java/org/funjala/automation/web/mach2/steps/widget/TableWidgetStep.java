@@ -4,7 +4,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import org.funjala.automation.web.common.drivers.Driver;
-import org.funjala.automation.web.pages.mach2.container.WidgetPage;
+import org.funjala.automation.web.pages.mach2.widget.Widget;
 import org.funjala.automation.web.pages.mach2.login.LoginPage;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +18,7 @@ public class TableWidgetStep {
   WebDriver driver;
   TopMenuPage topMenuPage;
   LoginPage loginPage;
-  WidgetPage widget;
+  Widget widget;
 
   @Given("^I am on Mach2 webpage$")
   public void iAmOnMachWebpage() throws IOException {

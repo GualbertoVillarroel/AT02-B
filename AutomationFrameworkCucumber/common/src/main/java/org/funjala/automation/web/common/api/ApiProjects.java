@@ -39,7 +39,8 @@ public class ApiProjects {
 
   public boolean deleteProjectByName(String nameOfProject) throws IOException {
     RestAssured restAssured = new RestAssured();
-    IllegalArgumentException exception = new IllegalArgumentException(nameOfProject + "doesn't exist.");
+    IllegalArgumentException exception = new IllegalArgumentException(
+            nameOfProject + "doesn't exist.");
 
     Integer id = getProjectByName(nameOfProject).getId();
     String endPoint = "projects" + "/" + id;

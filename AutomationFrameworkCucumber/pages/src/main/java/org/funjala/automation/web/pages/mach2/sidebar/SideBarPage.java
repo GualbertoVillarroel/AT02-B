@@ -1,7 +1,7 @@
 package org.funjala.automation.web.pages.mach2.sidebar;
 
 import org.funjala.automation.web.model.mach2.sidebar.SideBarModel;
-import org.funjala.automation.web.pages.mach2.container.MyDashboard;
+import org.funjala.automation.web.pages.mach2.dashboard.MyDashboard;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by JorgeForero on 1/19/2017.
  */
-public class SideBar {
+public class SideBarPage {
   private WebDriver driver;
   private WebDriverWait wait;
 
@@ -26,7 +26,7 @@ public class SideBar {
   private WebElement myDashboardButton;
 
 
-  public SideBar(WebDriver driver) {
+  public SideBarPage(WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);
     wait = new WebDriverWait(driver, 20);

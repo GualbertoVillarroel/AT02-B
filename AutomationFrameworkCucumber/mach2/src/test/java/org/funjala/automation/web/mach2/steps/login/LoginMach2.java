@@ -5,7 +5,6 @@ import cucumber.api.java.en.Given;
 import org.funjala.automation.web.common.drivers.Driver;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
 import org.funjala.automation.web.pages.mach2.login.LoginPage;
-import org.funjala.automation.web.pages.mach2.menu.TopMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -36,7 +35,6 @@ public class LoginMach2 {
   public void putPasswordAndPressSubmitButton(String password) {
     loginPage.setPasswordTextField(password);
     topMenuPage = loginPage.clickNextButton();
-    TopMenu topMenu = topMenuPage.goToTopMenu();
-    topMenu.clickOnLogOut();
+    topMenuPage.clickOnLogOut();
   }
 }

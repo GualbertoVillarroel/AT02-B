@@ -1,9 +1,10 @@
 package org.funjala.automation.web.pages.mach2.menu;
 
+import org.funjala.automation.web.model.mach2.menu.AccountModel;
 import org.funjala.automation.web.model.mach2.menu.TopMenuModel;
-import org.funjala.automation.web.pages.mach2.container.WidgetPage;
-import org.funjala.automation.web.pages.mach2.menu.TopMenu;
-import org.funjala.automation.web.pages.mach2.sidebar.SideBar;
+import org.funjala.automation.web.pages.mach2.board.BoardPage;
+import org.funjala.automation.web.pages.mach2.widget.Widget;
+import org.funjala.automation.web.pages.mach2.sidebar.SideBarPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +22,18 @@ public class TopMenuPage {
   @FindBy(css = TopMenuModel.menuIcon)
   private WebElement menuIcon;
 
+  @FindBy(css = AccountModel.userMenu)
+  private WebElement userMenu;
+
+  @FindBy(css = AccountModel.logOutButton)
+  private WebElement logOutButton;
+
+  @FindBy(css = "a.dash.tablet.computer.only.ui.needsclick.dropdown.item")
+  private WebElement menuBoard;
+
+  @FindBy(xpath = "//div/a[@class='brand item']/child::img")
+  private WebElement jalaItem;
+
   @FindBy(xpath = TopMenuModel.addBoard)
   private WebElement addBoard;
 
@@ -36,24 +49,45 @@ public class TopMenuPage {
     wait = new WebDriverWait(driver, 20);
   }
 
-  public TopMenu goToTopMenu() {
-    return new TopMenu(driver);
+  public void clickOnLogOut() {
+    wait.until(ExpectedConditions.elementToBeClickable(userMenu));
+    userMenu.click();
+    logOutButton.click();
+    driver.get("http://10.31.2.215:3666/");
   }
 
-  public SideBar goToSidebar() {
+  public void clickMenuBoard() {
+    wait.until(ExpectedConditions.elementToBeClickable(menuBoard));
+    menuBoard.click();
+  }
+
+  public SideBarPage goToSidebar() {
     menuIcon.click();
-    return new SideBar(driver);
+    return new SideBarPage(driver);
   }
 
-  public WidgetPage addNewWidget() {
+  public Widget addNewWidget() {
     wait.until(ExpectedConditions.elementToBeClickable(addWidget));
     addWidget.click();
-    return new WidgetPage(driver);
+    return new Widget(driver);
   }
 
   public void addNewBoard() {
     newBoard.click();
     wait.until(ExpectedConditions.elementToBeClickable(addBoard));
     addBoard.click();
+  }
+
+  public BoardPage clickAddBoard() {
+    clickMenuBoard();
+    wait.until(ExpectedConditions.elementToBeClickable(addBoard));
+    addBoard.click();
+    return new BoardPage(driver);
+  }
+
+  public void clickJalaItem() {
+    wait.until(ExpectedConditions.visibilityOf(jalaItem));
+    wait.until(ExpectedConditions.elementToBeClickable(jalaItem));
+    jalaItem.click();
   }
 }
