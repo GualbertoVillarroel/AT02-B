@@ -47,6 +47,7 @@ public class OEHomePage {
   }
 
   public void clickHumanResources() {
+    wait.until(ExpectedConditions.elementToBeClickable(humanResourcesButton));
     humanResourcesButton.click();
     try {
       Thread.sleep(1500);
