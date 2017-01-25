@@ -1,5 +1,6 @@
 package org.funjala.automation.web.pages.mach2.board;
 
+import org.funjala.automation.web.model.mach2.board.BoardOptionsModel;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,13 +17,13 @@ public class BoardOptions {
   private WebDriver driver;
   private WebDriverWait wait;
 
-  @FindBy(xpath = "//button[@data-action='save-wizard-config']")
+  @FindBy(xpath = BoardOptionsModel.shareBoard)
   private WebElement shareBoard;
 
-  @FindBy(css = "a[data-action=\"delete-board\"]")
+  @FindBy(css = BoardOptionsModel.deleteBoard)
   private WebElement deleteBoard;
 
-  @FindBy(css = "div.ui.positive.button")
+  @FindBy(css = BoardOptionsModel.acceptDeleteButton)
   private WebElement acceptDeleteButton;
 
   public BoardOptions(WebDriver driver) {

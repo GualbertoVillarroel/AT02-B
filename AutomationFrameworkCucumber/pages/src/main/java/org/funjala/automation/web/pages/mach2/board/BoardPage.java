@@ -1,5 +1,6 @@
 package org.funjala.automation.web.pages.mach2.board;
 
+import org.funjala.automation.web.model.mach2.board.BoardModel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +15,7 @@ public class BoardPage {
   private WebDriver driver;
   private WebDriverWait wait;
 
-  @FindBy(xpath = "//div[@class='icons-container']/child::div[3]/img")
+  @FindBy(xpath = BoardModel.boardConfig)
   private WebElement boardConfig;
 
 
