@@ -1,5 +1,6 @@
-package org.funjala.automation.web.pages.mach2.container;
+package org.funjala.automation.web.pages.mach2.board;
 
+import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,8 +32,10 @@ public class BoardOptions {
   }
 
   public final void deleteBoardMach() {
+    wait.until(ExpectedConditions.elementToBeClickable(deleteBoard));
     deleteBoard.click();
     wait.until(ExpectedConditions.elementToBeClickable(acceptDeleteButton));
     acceptDeleteButton.click();
   }
+
 }

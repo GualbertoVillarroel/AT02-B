@@ -35,10 +35,11 @@ public class ApiDocumentationPage {
     apiDocumentationBtn.click();
   }
 
-  /** Verify API Documentation page.
-     *
-     * @return True if Title is verified.
-     */
+  /**
+   * Verify API Documentation page.
+   *
+   * @return True if Title is verified.
+   */
   public boolean verifyApiDocumentation() {
     boolean flag = false;
     try {

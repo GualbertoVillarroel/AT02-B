@@ -78,8 +78,9 @@ public class CreateProjectPage {
 
   public void selectPrivacy(String privacy) {
     for (WebElement element : typeProject) {
-      if (privacy.equalsIgnoreCase(element.getAttribute("value")))
+      if (privacy.equalsIgnoreCase(element.getAttribute("value"))) {
         element.click();
+      }
     }
   }
 

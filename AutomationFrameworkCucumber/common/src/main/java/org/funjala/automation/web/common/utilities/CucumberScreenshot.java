@@ -17,6 +17,7 @@ public class CucumberScreenshot {
 
   public CucumberScreenshot() {
   }
+
   public void takeScreenshot(Scenario scenario) throws IOException {
     if (scenario.isFailed()) {
       byte[] myScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);

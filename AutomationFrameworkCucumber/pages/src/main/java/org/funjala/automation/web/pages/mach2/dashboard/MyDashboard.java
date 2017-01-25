@@ -1,4 +1,4 @@
-package org.funjala.automation.web.pages.mach2.container;
+package org.funjala.automation.web.pages.mach2.dashboard;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

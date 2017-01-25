@@ -38,15 +38,15 @@ public class ApiWorkspaces {
   }
 
   public boolean deleteWorkspaceByName(String nameOfWorkspace) throws IOException {
-    IllegalArgumentException exception= new IllegalArgumentException(nameOfWorkspace + "doesn't exist.");
+    IllegalArgumentException exception = new IllegalArgumentException(
+            nameOfWorkspace + "doesn't exist.");
     RestAssured restAssured = new RestAssured();
     Integer id = getWorkspaceByName(nameOfWorkspace).getId();
     String endPoint = "my/workspaces" + "/" + id;
 
-    if(restAssured.delete(endPoint).statusCode() == 204) {
+    if (restAssured.delete(endPoint).statusCode() == 204) {
       return true;
-    }
-    else {
+    } else {
       throw exception;
     }
   }
