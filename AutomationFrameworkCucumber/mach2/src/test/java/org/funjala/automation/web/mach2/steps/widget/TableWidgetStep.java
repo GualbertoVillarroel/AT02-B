@@ -2,14 +2,17 @@ package org.funjala.automation.web.mach2.steps.widget;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.funjala.automation.web.common.drivers.Driver;
-import org.funjala.automation.web.pages.mach2.widget.Widget;
 import org.funjala.automation.web.pages.mach2.login.LoginPage;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
+import org.funjala.automation.web.pages.mach2.widget.WidgetPage;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
+
+import static org.testng.Assert.assertEquals;
 
 /**
  * Created by DavidVallejos on 1/21/2017.
@@ -18,7 +21,7 @@ public class TableWidgetStep {
   WebDriver driver;
   TopMenuPage topMenuPage;
   LoginPage loginPage;
-  Widget widget;
+  WidgetPage widget;
 
   @Given("^I am on Mach2 webpage$")
   public void iAmOnMachWebpage() throws IOException {
@@ -72,15 +75,15 @@ public class TableWidgetStep {
     widget.clickSaveButton();
   }
 
-//  @Then("^I have a table widget with \"([^\"]*)\" filled$")
-//  public void iHaveATableWidgetWithFilled(String managerName) {
-//    System.setProperty("webdriver.chrome.driver", "../tools/chromedriver.exe");
-//    driver = new ChromeDriver();
-//    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-//    driver.manage().window().maximize();
-//
-//    OESearchManagerPage searchManagerPage = new OESearchManagerPage(driver);
-//    searchManagerPage.loginOpen();
-//    searchManagerPage.searchManager(managerName);
-//  }
+  @Then("^I have a table widget with \"([^\"]*)\" filled$")
+  public void iHaveATableWidgetWithFilled(String managerName) throws IOException {
+    int actualResult = widget.verifyCant(managerName);
+    System.out.println(">>>>>>>>>>>>>>>>>>>");
+    System.out.println(actualResult);
+    System.out.println(">>>>>>>>>>>>>>>>>>>");
+
+//    driver = Driver.getDriver().openBrowser(Driver.OpenERP);
+
+    assertEquals(2, actualResult);
+  }
 }
