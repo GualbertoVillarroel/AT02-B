@@ -5,12 +5,17 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.funjala.automation.web.common.drivers.Driver;
+import org.funjala.automation.web.pages.erp.home.OEHomePage;
+import org.funjala.automation.web.pages.erp.login.OELoginPage;
+import org.funjala.automation.web.pages.erp.search.OESearch;
 import org.funjala.automation.web.pages.mach2.login.LoginPage;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
 import org.funjala.automation.web.pages.mach2.widget.WidgetPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
+import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
@@ -76,14 +81,37 @@ public class TableWidgetStep {
   }
 
   @Then("^I have a table widget with \"([^\"]*)\" filled$")
-  public void iHaveATableWidgetWithFilled(String managerName) throws IOException {
+  public void iHaveATableWidgetWithFilled(String managerName) throws IOException, InterruptedException {
     int actualResult = widget.verifyCant(managerName);
     System.out.println(">>>>>>>>>>>>>>>>>>>");
     System.out.println(actualResult);
     System.out.println(">>>>>>>>>>>>>>>>>>>");
 
-//    driver = Driver.getDriver().openBrowser(Driver.OpenERP);
+    //Login OPEN ERP
 
-    assertEquals(2, actualResult);
+    driver = Driver.getDriver().openBrowser(Driver.OpenERP);
+    OELoginPage loginERP = new OELoginPage(driver);
+    loginERP.setUserName("jose6");
+    loginERP.setPassword("jose6");
+    OEHomePage homeERP = loginERP.clickBtnSubmit();
+
+    //Go to Human Resources
+
+    homeERP.clickHumanResources();
+    OESearch searchERP = homeERP.oeSearch();
+
+    //Go to Search
+            searchERP.clickSearchArrow();
+    searchERP.clickAdvancedSearch();
+    searchERP.foundAndClickAdvancedFilterOptions("manager", "is equal to", "Patricia Villagomez Montalvo");
+    searchERP.clickApplySearch();
+    searchERP.clickSwitchList();
+    searchERP.clickNumberElement();
+    searchERP.clickQuantityButton();
+    searchERP.clickUnlimitedOption();
+    List<WebElement> listManager = searchERP.listOfAllElements();
+
+    assertEquals(listManager.size(), actualResult);
   }
+
 }

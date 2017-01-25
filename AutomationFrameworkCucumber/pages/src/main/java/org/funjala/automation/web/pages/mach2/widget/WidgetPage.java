@@ -55,6 +55,7 @@ public class WidgetPage {
   }
 
   public void setManagerName(String managerName) {
+    wait.until(ExpectedConditions.visibilityOf(dropdownIcon));
     wait.until(ExpectedConditions.elementToBeClickable(dropdownIcon));
     dropdownIcon.click();
 
@@ -73,7 +74,6 @@ public class WidgetPage {
 
   public int verifyCant(String managerName) {
     int cant = 0;
-//    wait.until(ExpectedConditions.visibilityOf())
     for (WebElement element : listElementTable) {
       if (element.getText().equals(managerName)) {
         cant++;
