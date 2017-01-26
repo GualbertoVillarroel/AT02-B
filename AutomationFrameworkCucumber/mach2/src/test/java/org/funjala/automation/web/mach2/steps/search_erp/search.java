@@ -5,7 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.funjala.automation.web.common.drivers.Driver;
-import org.funjala.automation.web.mach2.hooks.ModelSearch;
+import org.funjala.automation.web.model.erp.search.ModelSearch;
 import org.funjala.automation.web.pages.erp.home.OEHomePage;
 import org.funjala.automation.web.pages.erp.login.OELoginPage;
 import org.funjala.automation.web.pages.erp.search.OESearch;

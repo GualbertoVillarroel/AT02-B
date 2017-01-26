@@ -1,5 +1,6 @@
 package org.funjala.automation.web.pages.erp.search;
 
+import org.funjala.automation.web.model.erp.search.ModelSearch;
 import org.funjala.automation.web.model.erp.search.SearchModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -19,8 +21,10 @@ import java.util.concurrent.TimeUnit;
 public class OESearch {
   private WebDriver driver;
   private WebDriverWait wait;
+  private int indexConditions;
 
   public OESearch(WebDriver driver) {
+    indexConditions = 1;
     this.driver = driver;
     AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 100);
     PageFactory.initElements(factory, this);
@@ -32,18 +36,6 @@ public class OESearch {
 
   @FindBy(xpath = SearchModel.advancedSearch)
   WebElement advancedSearchButton;
-
-  @FindBy(xpath = SearchModel.advancedFilterType)
-  WebElement advancedFilterType;
-
-  @FindBy(xpath = SearchModel.advancedFilterOptions)
-  List<WebElement> advancedFilterOptions;
-
-  @FindBy(xpath = SearchModel.advancedConditions)
-  List<WebElement> advancedConditions;
-
-  @FindBy(xpath = SearchModel.valueOfSearch)
-  WebElement valueOfSearch;
 
   @FindBy(xpath = SearchModel.applyButton)
   WebElement applyButton;
@@ -66,6 +58,8 @@ public class OESearch {
   @FindBy(xpath = SearchModel.numbersElement)
   WebElement numberElement;
 
+  @FindBy(xpath = SearchModel.addACondition)
+  WebElement addAConditionButton;
 
   public void clickSearchArrow() {
     searchArrow.click();
@@ -75,16 +69,19 @@ public class OESearch {
     advancedSearchButton.click();
   }
 
-  public void clickAdvancedFilterType() {
-    advancedFilterType.click();
-  }
 
   public void foundAndClickAdvancedFilterOptions(String filterType, String condition) {
+    List<WebElement> advancedFilterOptions = driver.findElements(
+            By.xpath("//li[" + indexConditions + "]/select[@class='searchview_extended_prop_field']/option"));
+
     for (WebElement type : advancedFilterOptions) {
 
       if (type.getText().trim().equalsIgnoreCase(filterType.trim()))
         type.click();
     }
+
+    List<WebElement> advancedConditions = driver.findElements(
+            By.xpath("//li[" + indexConditions + "]/select[@class='searchview_extended_prop_op']/option"));
 
     for (WebElement option : advancedConditions) {
       if (option.getText().trim().equalsIgnoreCase(condition.trim()))
@@ -93,16 +90,24 @@ public class OESearch {
   }
 
   public void foundAndClickAdvancedFilterOptions(String filterType, String condition, String value) {
+    List<WebElement> advancedFilterOptions = driver.findElements(
+            By.xpath("//li[" + indexConditions + "]/select[@class='searchview_extended_prop_field']/option"));
+
     for (WebElement type : advancedFilterOptions) {
 
       if (type.getText().trim().equalsIgnoreCase(filterType.trim()))
         type.click();
     }
 
+    List<WebElement> advancedConditions = driver.findElements(
+            By.xpath("//li[" + indexConditions + "]/select[@class='searchview_extended_prop_op']/option"));
+
     for (WebElement option : advancedConditions) {
       if (option.getText().trim().equalsIgnoreCase(condition.trim()))
         option.click();
     }
+
+    WebElement valueOfSearch = driver.findElement(By.xpath("//li[" + indexConditions + "]/span[@class='searchview_extended_prop_value']/input"));
 
     valueOfSearch.sendKeys(value);
   }
@@ -157,5 +162,28 @@ public class OESearch {
     List<WebElement> result = searchList;
     return result;
   }
+
+  public void clickAddAConditionButton() {
+    addAConditionButton.click();
+    indexConditions++;
+  }
+
+  public List<ModelSearch> getResultOfSearch() throws InterruptedException {
+    List<ModelSearch> listModelSearch = new ArrayList<>();
+    ModelSearch modelSearch;
+    for (WebElement element : listOfAllElements()) {
+      modelSearch = new ModelSearch();
+      modelSearch.setInternalId(element.findElement(By.xpath(".//td[@data-field='internal_number']")).getText());
+      modelSearch.setName(element.findElement(By.xpath(".//td[@data-field='name']")).getText());
+      modelSearch.setDepartment(element.findElement(By.xpath(".//td[@data-field='department_id']")).getText());
+      modelSearch.setJobTitle(element.findElement(By.xpath(".//td[@data-field='job_id']")).getText());
+      modelSearch.setLocation(element.findElement(By.xpath(".//td[@data-field='location_id']")).getText());
+      modelSearch.setLead(element.findElement(By.xpath(".//td[@data-field='lead_id']")).getText());
+      modelSearch.setManager(element.findElement(By.xpath(".//td[@data-field='parent_id']")).getText());
+      listModelSearch.add(modelSearch);
+    }
+    return listModelSearch;
+  }
+
 
 }
