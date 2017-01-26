@@ -127,6 +127,9 @@
                             <projectName>PivotalTracker-CucumberAT02</projectName>
                             <outputDirectory>${project.build.directory}/pivotal-reports</outputDirectory>
                             <cucumberOutput>${project.build.directory}/pivotal.json</cucumberOutput>
+                            <projectName>MACH2andOpenERP-CucumberAT02</projectName>
+                            <outputDirectory>${project.build.directory}/MACH2openERP-reports</outputDirectory>
+                            <cucumberOutput>${project.build.directory}/mach2.json</cucumberOutput>
                         </configuration>
                     </execution>
                 </executions>
