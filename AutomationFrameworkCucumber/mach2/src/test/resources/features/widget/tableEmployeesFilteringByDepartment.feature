@@ -7,11 +7,10 @@ Feature: Add Table Widget
 
   Scenario: Add Table Widget with Employees Personal Information
     Given I have a board
-    And I click on Widget Button
+    And I click over Widget Button
     When I click on Table button on the Widget
     And I click on Open ERP service
     And I select Option of Open ERP
-
     And I set department name with "Security test"
-    And I save that option
+    And I save that option with the department "Security test" selected
     Then I have a table with employees filtered for a "Security test"

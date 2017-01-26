@@ -17,6 +17,7 @@ import org.funjala.automation.web.pages.mach2.widget.WidgetPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,10 +34,12 @@ public class TableFilteringByEmployee {
   LoginPage loginPage;
   WidgetPage widget;
 
+  OELoginPage oeLoginPage;
   OEHomePage homePage;
   OESearch oeSearch;
   List<ModelSearch> listModelSearch = new ArrayList<>();
   ModelSearch modelSearch;
+  int x = 0;
 
   @Given("^I go to Mach2 web page$")
   public void iGoToMachWebPage() throws Throwable {
@@ -86,15 +89,21 @@ public class TableFilteringByEmployee {
 
   }
 
-  @And("^I save that option$")
-  public void iSaveThatOption() {
+  @And("^I save that option with the department \"([^\"]*)\" selected$")
+  public void iSaveThatOption(String department) {
     widget.clickSaveButton();
+    x = widget.verifyCantDepartment(department);
   }
 
   @Then("^I have a table with employees filtered for a \"([^\"]*)\"$")
-  public void iHaveATableWithEmployeesFilteredForA(String s) throws InterruptedException {
-
-    oeSearch = new OEHomePage(driver).oeSearch();
+  public void iHaveATableWithEmployeesFilteredForA(String s) throws InterruptedException, IOException {
+    driver = Driver.getDriver().openBrowser(Driver.OpenERP);
+    oeLoginPage = new OELoginPage(driver);
+    oeLoginPage.setUserName("jose7");
+    oeLoginPage.setPassword("jose7");
+    homePage = oeLoginPage.clickBtnSubmit();
+    homePage.clickHumanResources();
+    oeSearch = homePage.oeSearch();
     oeSearch.clickSearchArrow();
     oeSearch.clickAdvancedSearch();
     oeSearch.foundAndClickAdvancedFilterOptions("Department", "is equal to", "Security test");
@@ -103,9 +112,10 @@ public class TableFilteringByEmployee {
     oeSearch.clickNumberElement();
     oeSearch.clickQuantityButton();
     oeSearch.clickUnlimitedOption();
+
     List<WebElement> result = oeSearch.listOfAllElements();
-    System.out.println("result" + result.size());
-    System.out.println("widget" + widget.numberOfItems());
-    assertEquals(result.size(), widget.numberOfItems(), "alalala");
+    System.out.println(result.size());
+    System.out.println(x);
+    assertEquals(result.size(), x, "Compare numbers of Items");
   }
 }

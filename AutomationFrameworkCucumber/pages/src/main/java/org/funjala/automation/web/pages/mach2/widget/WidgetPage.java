@@ -49,9 +49,9 @@ public class WidgetPage {
 
   @FindBy(xpath = ".//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div")
   private WebElement comboboxDepartment;
-  //*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div/div[2]
-  @FindBy(xpath = "//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div/div[2]")
-  private List<WebElement> listOfDepartments;
+
+//  @FindBy(xpath = "//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div/div[2]")
+//  private List<WebElement> listOfDepartments;
 
   @FindBy(xpath = "//body/div[6]/div[3]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/table")
   private WebElement table;
@@ -81,6 +81,15 @@ public class WidgetPage {
 
     comboboxDepartment.click();
     driver.findElement(By.xpath(String.format(departamentItem, departmentName))).click();
+  }
+  public int verifyCantDepartment(String department) {
+    int cant = 0;
+    for (WebElement element : listElementTable) {
+      if (element.getText().equals("Security test")) {
+        cant++;
+      }
+    }
+    return cant;
   }
 
 
