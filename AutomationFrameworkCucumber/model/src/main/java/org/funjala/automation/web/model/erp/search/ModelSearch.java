@@ -1,4 +1,4 @@
-package org.funjala.automation.web.mach2.hooks;
+package org.funjala.automation.web.model.erp.search;
 
 /**
  * Created by Administrator on 1/25/2017.
