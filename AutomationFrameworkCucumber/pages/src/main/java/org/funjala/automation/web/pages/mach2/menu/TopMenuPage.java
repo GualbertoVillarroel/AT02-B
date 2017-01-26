@@ -49,9 +49,10 @@ public class TopMenuPage {
     wait = new WebDriverWait(driver, 20);
   }
 
-  public void clickOnLogOut() {
-    wait.until(ExpectedConditions.elementToBeClickable(userMenu));
+  public void clickOnLogOut() throws InterruptedException {
+    Thread.sleep(1000);
     userMenu.click();
+    Thread.sleep(1000);
     logOutButton.click();
     driver.get("http://10.31.2.215:3666/");
   }
