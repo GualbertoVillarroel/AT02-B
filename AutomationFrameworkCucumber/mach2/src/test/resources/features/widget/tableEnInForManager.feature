@@ -14,4 +14,4 @@ Feature: Widget using Open ERP service to show Engineer Information
     And I choose "David Angeles Cambom" as value for Manager field
     And I press Save button
     And I obtain a table with the Engineer Information for "David Angeles Cambom" as manager
-    Then I should have a table with "David Angeles Cambom" filled
+    Then I should have the same result using Open ERP web page to search Engineer Information for "David Angeles Cambom" as manager

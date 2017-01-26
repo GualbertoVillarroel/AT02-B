@@ -8,8 +8,6 @@ import org.funjala.automation.web.common.drivers.Driver;
 import org.funjala.automation.web.pages.erp.home.OEHomePage;
 import org.funjala.automation.web.pages.erp.login.OELoginPage;
 import org.funjala.automation.web.pages.erp.search.OESearch;
-import org.funjala.automation.web.pages.mach2.board.BoardOptions;
-import org.funjala.automation.web.pages.mach2.board.BoardPage;
 import org.funjala.automation.web.pages.mach2.dashboard.MyDashboard;
 import org.funjala.automation.web.pages.mach2.login.LoginPage;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
@@ -23,7 +21,7 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 
 
-public class EngineerInformationForManager {
+public class TableEnInForManager {
   WebDriver driver;
   TopMenuPage topMenuPage;
   LoginPage loginPage;
@@ -86,8 +84,8 @@ public class EngineerInformationForManager {
     dashboard.deleteBoard();
   }
 
-  @Then("^I should have a table with \"(.*)\" filled$")
-  public void iShouldHaveATableWithXFilled(String manager) throws IOException, InterruptedException {
+  @Then("^I should have the same result using Open ERP web page to search Engineer Information for \"(.*)\" as manager$")
+  public void iShouldHaveTheSameResulUsingErpPageToSearchEngineerInformationForManager(String manager) throws IOException, InterruptedException {
     driver = Driver.getDriver().openBrowser(Driver.OpenERP);
     OELoginPage loginERP = new OELoginPage(driver);
     loginERP.setUserName("jose6");

@@ -52,52 +52,52 @@ public class TableFilteringByEmployee {
   }
 
   @Given("^I have a board$")
-  public void iHaveABoard()  {
+  public void iHaveABoard() {
     topMenuPage.addNewBoard();
   }
 
   @And("^I click over Widget Button$")
-  public void iClickOverWidgetButton()  {
+  public void iClickOverWidgetButton() {
     widget = topMenuPage.addNewWidget();
   }
 
   @When("^I click on Table button on the Widget$")
-  public void iClickOnTableButtonOnTheWidget()  {
+  public void iClickOnTableButtonOnTheWidget() {
     widget.addWidget("Table");
 
   }
 
   @And("^I click on Open ERP service$")
-  public void iClickOnOpenERPService()  {
+  public void iClickOnOpenERPService() {
     widget.clickOnService("Open ERP");
 
   }
 
   @And("^I select Option of Open ERP$")
-  public void iSelectOptionOfOpenERP()  {
+  public void iSelectOptionOfOpenERP() {
     widget.selectErpOption();
 
   }
 
   @And("^I set department name with \"([^\"]*)\"$")
-  public void iSetDepartmentNameWith(String arg0)  {
+  public void iSetDepartmentNameWith(String arg0) {
     widget.clickOnAdvanceConfiguration();
     widget.setDepartmentName("Security test");
 
   }
 
   @And("^I save that option$")
-  public void iSaveThatOption()  {
+  public void iSaveThatOption() {
     widget.clickSaveButton();
   }
 
   @Then("^I have a table with employees filtered for a \"([^\"]*)\"$")
-  public void iHaveATableWithEmployeesFilteredForA( String s) throws InterruptedException {
+  public void iHaveATableWithEmployeesFilteredForA(String s) throws InterruptedException {
 
     oeSearch = new OEHomePage(driver).oeSearch();
     oeSearch.clickSearchArrow();
     oeSearch.clickAdvancedSearch();
-    oeSearch.foundAndClickAdvancedFilterOptions("Department", "is equal to","Security test");
+    oeSearch.foundAndClickAdvancedFilterOptions("Department", "is equal to", "Security test");
     oeSearch.clickApplySearch();
     oeSearch.clickSwitchList();
     oeSearch.clickNumberElement();
@@ -105,7 +105,7 @@ public class TableFilteringByEmployee {
     oeSearch.clickUnlimitedOption();
     List<WebElement> result = oeSearch.listOfAllElements();
     System.out.println("result" + result.size());
-    System.out.println("widget" +widget.numberOfItems() );
-    assertEquals(result.size(),widget.numberOfItems(), "alalala");
+    System.out.println("widget" + widget.numberOfItems());
+    assertEquals(result.size(), widget.numberOfItems(), "alalala");
   }
 }
