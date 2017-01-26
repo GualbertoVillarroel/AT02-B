@@ -14,6 +14,7 @@ public class WidgetModel {
   public static final String menuDivisionsButton = "//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[1]/div/i";
   public static final String selectorDivisions = "//div[@class='menu transition visible']/descendant::div";
   public static final String accountItem = "//div[text()= '";
+  public static final String erpEngineerInformationOption = "div:nth-child(3) > div > h4";
 
   public static final String ListElementListWidget = "//div[@class='ui list']//div[@class='item plain']";
 }

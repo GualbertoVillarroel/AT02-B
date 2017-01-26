@@ -42,6 +42,21 @@ public class WidgetPage {
   @FindBy(xpath = WidgetModel.listElementTable)
   private List<WebElement> listElementTable;
 
+  @FindBy(css = WidgetModel.erpEngineerInformationOption)
+  private WebElement erpEngineerInformationOption;
+
+  @FindBy(css = "a[data-id='advanced-config']")
+  private WebElement advanceConfig;
+
+  @FindBy(xpath = "//div[4]/div[2]/div/div[2]/div/i")
+  private WebElement jobTitles;
+
+  @FindBy(xpath = "//div[text()='CFO']")
+  private WebElement optionCFO;
+
+  @FindBy(xpath = "//div[@class='truncated text header']")
+  private List<WebElement> listName;
+
 
   //Corregir esto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-----------------------------------------------------
   @FindBy(xpath = ".//a/b[text()='ADVANCED CONFIGURATION']")
@@ -184,6 +199,35 @@ public class WidgetPage {
       }
     }
     return cant;
+  }
+
+  public void selectEngineerInformationOption() {
+    wait.until(ExpectedConditions.elementToBeClickable(erpEngineerInformationOption));
+    erpEngineerInformationOption.click();
+  }
+
+  public boolean verifyList(String name) {
+    boolean result = false;
+    for (WebElement element : listName) {
+      wait.until(ExpectedConditions.visibilityOf(element));
+      if (element.getText().equals(name))
+        result = true;
+    }
+    return result;
+  }
+
+  public void clickAdvanceConfiguration() {
+    wait.until(ExpectedConditions.elementToBeClickable(advanceConfig));
+    advanceConfig.click();
+  }
+
+  public void selectCFO() {
+    wait.until(ExpectedConditions.visibilityOf(jobTitles));
+    wait.until(ExpectedConditions.elementToBeClickable(jobTitles));
+    jobTitles.click();
+    wait.until(ExpectedConditions.visibilityOf(optionCFO));
+    wait.until(ExpectedConditions.elementToBeClickable(optionCFO));
+    optionCFO.click();
   }
 
   public void clickSaveButton() {
