@@ -1,10 +1,9 @@
-@table
 Feature: Widget using Open ERP service to show Engineer Information
 
   Background: Login to Mach2
     Given I am on Mach2 Web page
-    And I set a username as "Gualberto"
-    And I set a password as "password123" and press Login button
+    And I set a username as "at02"
+    And I set a password as "Automation123" and press Login button
 
   Scenario: Add a Table Widget using Open ERP service to show Engineer Information for a Manager
     Given I add a board
