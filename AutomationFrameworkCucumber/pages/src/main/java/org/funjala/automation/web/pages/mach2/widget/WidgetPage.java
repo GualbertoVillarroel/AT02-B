@@ -25,6 +25,9 @@ public class WidgetPage {
   @FindBy(css = WidgetModel.erpOption)
   private WebElement erpOption;
 
+  @FindBy(xpath = WidgetModel.eiOption)
+  private WebElement eiOption;
+
   @FindBy(xpath = WidgetModel.managerInput)
   private List<WebElement> managerInput;
 
@@ -65,6 +68,12 @@ public class WidgetPage {
 
   public void clickOnService(String service) {
     driver.findElement(By.xpath("//span[text()=" + "\'" + service + "\'" + "]")).click();
+  }
+
+  public void selectEiOption() {
+    wait.until(ExpectedConditions.visibilityOf(eiOption));
+    wait.until(ExpectedConditions.elementToBeClickable(eiOption));
+    eiOption.click();
   }
 
   public void selectErpOption() {
