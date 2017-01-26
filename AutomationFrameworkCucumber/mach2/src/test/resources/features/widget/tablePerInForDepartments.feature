@@ -1,5 +1,5 @@
-@table
-Feature: Add Table Widget
+@tableDepartment
+Feature: Add table widget
 
   Background: Login
     Given I go to Mach2 web page
