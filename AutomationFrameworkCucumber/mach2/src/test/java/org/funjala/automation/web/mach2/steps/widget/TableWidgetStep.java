@@ -8,6 +8,7 @@ import org.funjala.automation.web.common.drivers.Driver;
 import org.funjala.automation.web.pages.erp.home.OEHomePage;
 import org.funjala.automation.web.pages.erp.login.OELoginPage;
 import org.funjala.automation.web.pages.erp.search.OESearch;
+import org.funjala.automation.web.pages.mach2.dashboard.MyDashboard;
 import org.funjala.automation.web.pages.mach2.login.LoginPage;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
 import org.funjala.automation.web.pages.mach2.sidebar.SideBarPage;
@@ -87,11 +88,11 @@ public class TableWidgetStep {
     System.out.println(">>>>>>>>>>>>>>>>>>>");
     System.out.println(actualResult);
     System.out.println(">>>>>>>>>>>>>>>>>>>");
-    SideBarPage sideBarPage = topMenuPage.goToSidebar();
-    sideBarPage.deleteAllBoards();
+
+    MyDashboard dashboard = new MyDashboard(driver);
+    dashboard.deleteBoard();
 
     //Login OPEN ERP
-
     driver = Driver.getDriver().openBrowser(Driver.OpenERP);
     OELoginPage loginERP = new OELoginPage(driver);
     loginERP.setUserName("jose6");
@@ -99,15 +100,14 @@ public class TableWidgetStep {
     OEHomePage homeERP = loginERP.clickBtnSubmit();
 
     //Go to Human Resources
-
     homeERP.clickHumanResources();
     OESearch searchERP = homeERP.oeSearch();
 
     //Go to Search
-            searchERP.clickSearchArrow();
+    searchERP.clickSearchArrow();
     searchERP.clickAdvancedSearch();
-    searchERP.foundAndClickAdvancedFilterOptions("manager", "is equal to", "Patricia Villagomez Montalvo");
-        searchERP.clickApplySearch();
+    searchERP.foundAndClickAdvancedFilterOptions("manager", "is equal to", managerName);
+    searchERP.clickApplySearch();
     searchERP.clickSwitchList();
     searchERP.clickNumberElement();
     searchERP.clickQuantityButton();
@@ -115,6 +115,8 @@ public class TableWidgetStep {
     List<WebElement> listManager = searchERP.listOfAllElements();
 
     assertEquals(listManager.size(), actualResult);
-  }
 
+    homeERP.clickUserAccount();
+    homeERP.clickLogOut();
+  }
 }
