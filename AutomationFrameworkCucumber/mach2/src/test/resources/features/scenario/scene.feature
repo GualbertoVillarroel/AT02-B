@@ -1,5 +1,5 @@
 @table
-Feature: Table Widget
+Feature: Widget using Open ERP service to show Engineer Information
 
   Background: Login to Mach2
     Given I am on Mach2 Web page
@@ -11,6 +11,6 @@ Feature: Table Widget
     When I add a "Table" Widget
     And I select "Open ERP" service
     And I select Engineer Information option
-    And I choose "Ana Maria Fernandez Chavez Aguerre" as value for Manager field
+    And I choose "David Angeles Cambom" as value for Manager field
     And I press Save button
-    Then I should have a table with "Ana Maria Fernandez Chavez Aguerre" filled
+    Then I should have a table with "David Angeles Cambom" filled

@@ -5,6 +5,7 @@ package org.funjala.automation.web.model.mach2.widget;
  */
 public class WidgetModel {
   public static final String dropdownIcon = "//div[2]/div[2]/div/i[@class='dropdown icon']";
+  public static final String dropDownList = " //*[@id=\"mach-wizard\"]/div/div[3]/div/div/div[2]/div[2]/div";
   public static final String erpOption = "div:nth-child(2) > div > h4";
   public static final String eiOption = "//*[@id=\"mach-wizard\"]/div/div[3]/div/div/div[2]/div[3]/div/h4";
   public static final String managerInput = "//div[@class='menu transition visible']/descendant::div";
