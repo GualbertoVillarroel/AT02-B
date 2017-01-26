@@ -2,7 +2,6 @@ package org.funjala.automation.web.pages.mach2.widget;
 
 import org.funjala.automation.web.model.mach2.widget.WidgetModel;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
-import java.util.StringJoiner;
 
 /**
  * Created by DavidVallejos on 1/21/2017.
@@ -64,9 +62,9 @@ public class WidgetPage {
 
   @FindBy(xpath = ".//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div")
   private WebElement comboboxDepartment;
-  //*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div/div[2]
-  @FindBy(xpath = "//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div/div[2]")
-  private List<WebElement> listOfDepartments;
+
+//  @FindBy(xpath = "//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div/div[2]")
+//  private List<WebElement> listOfDepartments;
 
   @FindBy(xpath = "//body/div[6]/div[3]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/table")
   private WebElement table;
@@ -76,30 +74,33 @@ public class WidgetPage {
     return table.findElements(By.cssSelector("tr")).size() - 1;
   }
 
-  private static final String departamentItem = "//div[contains(text(),'%s')]";
+  private static final String departmentItem = "//div[contains(text(),'%s')]";
 
-  //1
   public void clickOnAdvanceConfiguration() {
     wait.until(ExpectedConditions.visibilityOf(advanceConfiguration));
     advanceConfiguration.click();
   }
 
-  //2
   public void clickOnComboboxDepartment() {
     comboboxDepartment.click();
   }
 
-  //3
   public void setDepartmentName(String departmentName) {
     wait.until(ExpectedConditions.visibilityOf(comboboxDepartment));
     wait.until(ExpectedConditions.elementToBeClickable(comboboxDepartment));
 
     comboboxDepartment.click();
-    driver.findElement(By.xpath(String.format(departamentItem, departmentName))).click();
+    driver.findElement(By.xpath(String.format(departmentItem, departmentName))).click();
   }
-
-
-  //hasta aqui!!!!!!!!!!!---------------------------------------------------------------------------------
+  public int verifyCantDepartment(String department) {
+    int cant = 0;
+    for (WebElement element : listElementTable) {
+      if (element.getText().equals("Security test")) {
+        cant++;
+      }
+    }
+    return cant;
+  }
 
   @FindBy(xpath = WidgetModel.menuDivisionsButton)
   WebElement menuDivisionsButton;
