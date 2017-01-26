@@ -207,7 +207,7 @@ public class TaskSteps {
     log.info("Step", "Deleting project by API", "Deleting the project");
     ApiProjects apiProjects = new ApiProjects();
     CucumberScreenshot screenshot = new CucumberScreenshot();
-    screenshot.takeScreenshot(scenario);
+    screenshot.takeScreenshot(scenario, "pivotaltracker");
     apiProjects.deleteAllProjects();
     log.info("Step", "Logout of the account", "Quiting of the account");
     home.logOut();

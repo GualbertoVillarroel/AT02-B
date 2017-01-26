@@ -18,10 +18,10 @@ public class CucumberScreenshot {
   public CucumberScreenshot() {
   }
 
-  public void takeScreenshot(Scenario scenario) throws IOException {
+  public void takeScreenshot(Scenario scenario, String project) throws IOException {
     if (scenario.isFailed()) {
       byte[] myScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-      FileOutputStream out = new FileOutputStream("../pivotaltracker/reports/cucumber/Screenshots/failure-screenshot-"
+      out = new FileOutputStream("../" + project.toLowerCase() + "/reports/cucumber/Screenshots/failure-screenshot-"
               + (scenario.getName()).replace(" ", "-") + ".png");
       out.write(myScreenshot);
       scenario.embed(myScreenshot, "image/png");
