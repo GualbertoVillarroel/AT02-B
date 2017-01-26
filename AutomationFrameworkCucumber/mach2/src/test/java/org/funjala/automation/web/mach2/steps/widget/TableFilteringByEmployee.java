@@ -56,8 +56,8 @@ public class TableFilteringByEmployee {
     topMenuPage.addNewBoard();
   }
 
-  @And("^I click on Widget Button$")
-  public void iClickOnWidgetButton()  {
+  @And("^I click over Widget Button$")
+  public void iClickOverWidgetButton()  {
     widget = topMenuPage.addNewWidget();
   }
 
