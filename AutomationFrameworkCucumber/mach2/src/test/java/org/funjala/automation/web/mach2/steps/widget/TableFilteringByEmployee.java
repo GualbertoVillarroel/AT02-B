@@ -114,8 +114,8 @@ public class TableFilteringByEmployee {
     oeSearch.clickUnlimitedOption();
 
     List<WebElement> result = oeSearch.listOfAllElements();
-    System.out.println(result.size());
-    System.out.println(x);
     assertEquals(result.size(), x, "Compare numbers of Items");
+    homePage.clickUserAccount();
+    homePage.clickLogOut();
   }
 }
