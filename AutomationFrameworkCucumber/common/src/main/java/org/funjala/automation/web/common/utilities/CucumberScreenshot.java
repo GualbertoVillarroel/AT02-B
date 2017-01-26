@@ -19,6 +19,7 @@ public class CucumberScreenshot {
   }
 
   public void takeScreenshot(Scenario scenario, String project) throws IOException {
+    FileOutputStream out;
     if (scenario.isFailed()) {
       byte[] myScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
       out = new FileOutputStream("../" + project.toLowerCase() + "/reports/cucumber/Screenshots/failure-screenshot-"
