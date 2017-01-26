@@ -24,6 +24,9 @@ public class WidgetPage {
   @FindBy(xpath = WidgetModel.dropdownIcon)
   private WebElement dropdownIcon;
 
+  @FindBy(xpath = WidgetModel.dropDownList)
+  private WebElement dropDownList;
+
   @FindBy(css = WidgetModel.erpOption)
   private WebElement erpOption;
 
@@ -40,41 +43,44 @@ public class WidgetPage {
   private List<WebElement> listElementTable;
 
 
-//Corregir esto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-----------------------------------------------------
+  //Corregir esto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-----------------------------------------------------
   @FindBy(xpath = ".//a/b[text()='ADVANCED CONFIGURATION']")
   private WebElement advanceConfiguration;
 
   @FindBy(xpath = ".//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div")
   private WebElement comboboxDepartment;
-//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div/div[2]
+  //*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div/div[2]
   @FindBy(xpath = "//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div/div[2]")
   private List<WebElement> listOfDepartments;
 
   @FindBy(xpath = "//body/div[6]/div[3]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/table")
   private WebElement table;
 
-  public int numberOfItems(){
+  public int numberOfItems() {
 
-    return table.findElements(By.cssSelector("tr")).size()-1;
+    return table.findElements(By.cssSelector("tr")).size() - 1;
   }
 
   private static final String departamentItem = "//div[contains(text(),'%s')]";
+
   //1
-  public void clickOnAdvanceConfiguration(){
+  public void clickOnAdvanceConfiguration() {
     wait.until(ExpectedConditions.visibilityOf(advanceConfiguration));
     advanceConfiguration.click();
   }
+
   //2
-  public void clickOnComboboxDepartment(){
+  public void clickOnComboboxDepartment() {
     comboboxDepartment.click();
   }
+
   //3
-  public void setDepartmentName(String departmentName){
+  public void setDepartmentName(String departmentName) {
     wait.until(ExpectedConditions.visibilityOf(comboboxDepartment));
     wait.until(ExpectedConditions.elementToBeClickable(comboboxDepartment));
 
     comboboxDepartment.click();
-    driver.findElement(By.xpath(String.format(departamentItem,departmentName))).click();
+    driver.findElement(By.xpath(String.format(departamentItem, departmentName))).click();
   }
 
 
@@ -90,8 +96,8 @@ public class WidgetPage {
   WebElement accountItem;
 
   @FindBy(xpath = WidgetModel.ListElementListWidget)
-  private List<WebElement>  listElementListWidget;
-  
+  private List<WebElement> listElementListWidget;
+
   public WidgetPage(WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);
@@ -116,7 +122,7 @@ public class WidgetPage {
     driver.findElement(By.xpath("//span[text()=" + "\'" + service + "\'" + "]")).click();
   }
 
-  public void clickOnSpecificService(String specificService){
+  public void clickOnSpecificService(String specificService) {
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"mach-wizard\"]//*[@class=\"wizard-provider-panel\"]")));
     driver.findElement(By.xpath("//h4[@class='ui header' and text()=" + "\'" + specificService + "\'" + "]")).click();
   }
@@ -131,10 +137,9 @@ public class WidgetPage {
   }
 
 
-
   public int verifyQtyEmployeeExperienceBySkillsCloud(String skillName) {
     int cant = 0;
-    for (WebElement element : listElementListWidget ) {
+    for (WebElement element : listElementListWidget) {
       if (element.getText().toUpperCase().contains(skillName.toUpperCase())) {
         cant++;
       }
@@ -156,9 +161,9 @@ public class WidgetPage {
 
 
   public void setManagerName(String managerName) {
-    wait.until(ExpectedConditions.visibilityOf(dropdownIcon));
-    wait.until(ExpectedConditions.elementToBeClickable(dropdownIcon));
-    driver.findElement(By.xpath("//div[@data-key='Manager']/label/following-sibling::div")).click();
+    wait.until(ExpectedConditions.visibilityOf(dropDownList));
+    wait.until(ExpectedConditions.elementToBeClickable(dropDownList));
+    dropDownList.click();
 
     for (WebElement element : managerInput) {
       if (element.getText().equals(managerName)) {
@@ -181,6 +186,7 @@ public class WidgetPage {
   }
 
   public void clickSaveButton() {
+    wait.until(ExpectedConditions.visibilityOf(saveButton));
     wait.until(ExpectedConditions.elementToBeClickable(saveButton));
     saveButton.click();
   }

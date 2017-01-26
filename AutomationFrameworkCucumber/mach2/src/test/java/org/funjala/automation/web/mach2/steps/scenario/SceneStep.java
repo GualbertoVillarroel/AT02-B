@@ -10,6 +10,7 @@ import org.funjala.automation.web.pages.erp.login.OELoginPage;
 import org.funjala.automation.web.pages.erp.search.OESearch;
 import org.funjala.automation.web.pages.mach2.board.BoardOptions;
 import org.funjala.automation.web.pages.mach2.board.BoardPage;
+import org.funjala.automation.web.pages.mach2.dashboard.MyDashboard;
 import org.funjala.automation.web.pages.mach2.login.LoginPage;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
 import org.funjala.automation.web.pages.mach2.widget.WidgetPage;
@@ -27,8 +28,7 @@ public class SceneStep {
   TopMenuPage topMenuPage;
   LoginPage loginPage;
   WidgetPage widget;
-  BoardPage boardPage;
-  BoardOptions boardOptions;
+  MyDashboard dashboard;
 
   @Given("^I am on Mach2 Web page$")
   public void iAmOnMac2WebPage() throws IOException {
@@ -81,26 +81,35 @@ public class SceneStep {
   @Then("^I should have a table with \"(.*)\" filled$")
   public void iShouldHaveATableWithXFilled(String manager) throws IOException, InterruptedException {
     int actualResult = widget.verifyCant(manager);
-    boardPage = topMenuPage.goToBoardPage();
-    boardOptions = boardPage.clickBoardConfig();
-    boardOptions.deleteBoardMach();
+
+    //Clean up Widget and Board
+    dashboard = new MyDashboard(driver);
+    dashboard.deleteBoard();
+
+    //Logout Mach2
 //    topMenuPage.clickOnLogOut();
 
-    //Open ERP
+    //Login OPEN ERP
     driver = Driver.getDriver().openBrowser(Driver.OpenERP);
     OELoginPage loginERP = new OELoginPage(driver);
     loginERP.setUserName("jose6");
     loginERP.setPassword("jose6");
     OEHomePage homeERP = loginERP.clickBtnSubmit();
 
+    //Go to Human Resources
     homeERP.clickHumanResources();
     OESearch searchERP = homeERP.oeSearch();
 
+    //Go to Search
     searchERP.clickSearchArrow();
     searchERP.clickAdvancedSearch();
+
+    //Make a search by manager
     searchERP.foundAndClickAdvancedFilterOptions("manager", "is equal to", manager);
     searchERP.clickApplySearch();
     searchERP.clickSwitchList();
+
+    //Get elements of the list
     searchERP.clickNumberElement();
     searchERP.clickQuantityButton();
     searchERP.clickUnlimitedOption();
@@ -108,6 +117,7 @@ public class SceneStep {
 
     assertEquals(listManager.size(), actualResult);
 
+    //Logout Open ERP page
     homeERP.clickUserAccount();
     homeERP.clickLogOut();
   }
