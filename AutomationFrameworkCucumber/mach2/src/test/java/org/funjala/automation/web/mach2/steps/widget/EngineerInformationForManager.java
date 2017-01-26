@@ -1,4 +1,4 @@
-package org.funjala.automation.web.mach2.steps.scenario;
+package org.funjala.automation.web.mach2.steps.widget;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -23,12 +23,13 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 
 
-public class SceneStep {
+public class EngineerInformationForManager {
   WebDriver driver;
   TopMenuPage topMenuPage;
   LoginPage loginPage;
   WidgetPage widget;
   MyDashboard dashboard;
+  private int restult;
 
   @Given("^I am on Mach2 Web page$")
   public void iAmOnMac2WebPage() throws IOException {
@@ -78,18 +79,15 @@ public class SceneStep {
     widget.clickSaveButton();
   }
 
-  @Then("^I should have a table with \"(.*)\" filled$")
-  public void iShouldHaveATableWithXFilled(String manager) throws IOException, InterruptedException {
-    int actualResult = widget.verifyCant(manager);
-
-    //Clean up Widget and Board
+  @And("^I obtain a table with the Engineer Information for \"(.*)\" as manager$")
+  public void iObtainATableWithTheEnngineerInformationForXAsManager(String manager) {
+    restult = widget.verifyCant(manager);
     dashboard = new MyDashboard(driver);
     dashboard.deleteBoard();
+  }
 
-    //Logout Mach2
-//    topMenuPage.clickOnLogOut();
-
-    //Login OPEN ERP
+  @Then("^I should have a table with \"(.*)\" filled$")
+  public void iShouldHaveATableWithXFilled(String manager) throws IOException, InterruptedException {
     driver = Driver.getDriver().openBrowser(Driver.OpenERP);
     OELoginPage loginERP = new OELoginPage(driver);
     loginERP.setUserName("jose6");
@@ -115,7 +113,7 @@ public class SceneStep {
     searchERP.clickUnlimitedOption();
     List<WebElement> listManager = searchERP.listOfAllElements();
 
-    assertEquals(listManager.size(), actualResult);
+    assertEquals(listManager.size(), restult);
 
     //Logout Open ERP page
     homeERP.clickUserAccount();
