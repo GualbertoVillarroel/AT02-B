@@ -158,11 +158,7 @@ public class WidgetPage {
   public void setManagerName(String managerName) {
     wait.until(ExpectedConditions.visibilityOf(dropdownIcon));
     wait.until(ExpectedConditions.elementToBeClickable(dropdownIcon));
-    dropdownIcon.click();
-
-//    System.out.println(">>>>>>>>>>>>>>>>>>>");
-//    System.out.println(managerInput.size());
-//    System.out.println(">>>>>>>>>>>>>>>>>>>");
+    driver.findElement(By.xpath("//div[@data-key='Manager']/label/following-sibling::div")).click();
 
     for (WebElement element : managerInput) {
       if (element.getText().equals(managerName)) {

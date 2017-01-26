@@ -29,6 +29,7 @@ public class TableWidgetStep {
   TopMenuPage topMenuPage;
   LoginPage loginPage;
   WidgetPage widget;
+  MyDashboard dashboard;
 
   @Given("^I am on Mach2 webpage$")
   public void iAmOnMachWebpage() throws IOException {
@@ -85,12 +86,13 @@ public class TableWidgetStep {
   @Then("^I have a table widget with \"([^\"]*)\" filled$")
   public void iHaveATableWidgetWithFilled(String managerName) throws IOException, InterruptedException {
     int actualResult = widget.verifyCant(managerName);
-    System.out.println(">>>>>>>>>>>>>>>>>>>");
-    System.out.println(actualResult);
-    System.out.println(">>>>>>>>>>>>>>>>>>>");
 
-    MyDashboard dashboard = new MyDashboard(driver);
+    //Clean up Widget and Board
+    dashboard = new MyDashboard(driver);
     dashboard.deleteBoard();
+
+    //Logout Mach2
+//    topMenuPage.clickOnLogOut();
 
     //Login OPEN ERP
     driver = Driver.getDriver().openBrowser(Driver.OpenERP);
@@ -106,9 +108,13 @@ public class TableWidgetStep {
     //Go to Search
     searchERP.clickSearchArrow();
     searchERP.clickAdvancedSearch();
+
+    //Make a search by manager
     searchERP.foundAndClickAdvancedFilterOptions("manager", "is equal to", managerName);
     searchERP.clickApplySearch();
     searchERP.clickSwitchList();
+
+    //Get elements of the list
     searchERP.clickNumberElement();
     searchERP.clickQuantityButton();
     searchERP.clickUnlimitedOption();
@@ -116,6 +122,7 @@ public class TableWidgetStep {
 
     assertEquals(listManager.size(), actualResult);
 
+    //Logout Open ERP page
     homeERP.clickUserAccount();
     homeERP.clickLogOut();
   }
