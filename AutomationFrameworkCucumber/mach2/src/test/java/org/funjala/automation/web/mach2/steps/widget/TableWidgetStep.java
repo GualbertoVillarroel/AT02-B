@@ -1,10 +1,12 @@
 package org.funjala.automation.web.mach2.steps.widget;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.funjala.automation.web.common.drivers.Driver;
+import org.funjala.automation.web.model.erp.search.ModelSearch;
 import org.funjala.automation.web.pages.erp.home.OEHomePage;
 import org.funjala.automation.web.pages.erp.login.OELoginPage;
 import org.funjala.automation.web.pages.erp.search.OESearch;
@@ -92,7 +94,7 @@ public class TableWidgetStep {
     dashboard.deleteBoard();
 
     //Logout Mach2
-//    topMenuPage.clickOnLogOut();
+    topMenuPage.clickOnLogOut();
 
     //Login OPEN ERP
     driver = Driver.getDriver().openBrowser(Driver.OpenERP);
@@ -125,5 +127,56 @@ public class TableWidgetStep {
     //Logout Open ERP page
     homeERP.clickUserAccount();
     homeERP.clickLogOut();
+  }
+
+  @And("^I fill division textfield as \"([^\"]*)\"$")
+  public void iFillDivisionTextfieldAs(String value) throws Throwable {
+    widget.setDivisionName(value);
+  }
+
+  @Then("^I have a table widget with division \"([^\"]*)\"$")
+  public void iHaveATableWidgetWithDivision(String value) throws Throwable {
+    int actualResult = widget.verifyCant(value);
+    System.out.println(actualResult);
+
+    //Clean up Widget and Board
+    dashboard = new MyDashboard(driver);
+    dashboard.deleteBoard();
+
+    //Logout Mach2
+    topMenuPage.clickOnLogOut();
+
+    //Login OPEN ERP
+    driver = Driver.getDriver().openBrowser(Driver.OpenERP);
+    OELoginPage loginERP = new OELoginPage(driver);
+    loginERP.setUserName("jose6");
+    loginERP.setPassword("jose6");
+    OEHomePage homeERP = loginERP.clickBtnSubmit();
+
+//    //Go to Human Resources
+    homeERP.clickHumanResources();
+    OESearch searchERP = homeERP.oeSearch();
+
+    //Go to Search
+    searchERP.clickSearchArrow();
+    searchERP.clickAdvancedSearch();
+
+    //Make a search by manager
+    searchERP.foundAndClickAdvancedFilterOptions("division", "is equal to", value);
+    searchERP.clickApplySearch();
+    searchERP.clickSwitchList();
+
+    //Get elements of the list
+    searchERP.clickNumberElement();
+    searchERP.clickQuantityButton();
+    searchERP.clickUnlimitedOption();
+    List<ModelSearch> listManager = searchERP.getResultOfSearch();
+
+    assertEquals(listManager.size(), actualResult);
+
+    //Logout Open ERP page
+    homeERP.clickUserAccount();
+    homeERP.clickLogOut();
+
   }
 }
