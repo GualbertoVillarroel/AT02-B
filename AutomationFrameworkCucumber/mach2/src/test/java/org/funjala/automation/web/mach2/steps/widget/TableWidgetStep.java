@@ -107,7 +107,7 @@ public class TableWidgetStep {
             searchERP.clickSearchArrow();
     searchERP.clickAdvancedSearch();
     searchERP.foundAndClickAdvancedFilterOptions("manager", "is equal to", "Patricia Villagomez Montalvo");
-    searchERP.clickApplySearch();
+        searchERP.clickApplySearch();
     searchERP.clickSwitchList();
     searchERP.clickNumberElement();
     searchERP.clickQuantityButton();

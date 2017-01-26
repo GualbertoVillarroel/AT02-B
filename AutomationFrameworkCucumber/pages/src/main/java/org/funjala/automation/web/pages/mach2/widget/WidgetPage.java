@@ -34,6 +34,15 @@ public class WidgetPage {
   @FindBy(xpath = WidgetModel.listElementTable)
   private List<WebElement> listElementTable;
 
+  @FindBy(xpath = WidgetModel.menuDivisionsButton)
+  WebElement menuDivisionsButton;
+
+  @FindBy(xpath = WidgetModel.selectorDivisions)
+  WebElement selectorDivisions;
+
+  @FindBy(xpath = WidgetModel.accountItem)
+  WebElement accountItem;
+
   public WidgetPage(WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);
@@ -43,6 +52,15 @@ public class WidgetPage {
   public void addWidget(String type) {
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-component='widget']")));
     driver.findElement(By.xpath("//div[@class='name' and text()=" + "\'" + type + "\'" + "]")).click();
+  }
+
+  public void setDivisionName(String divisionName) {
+    wait.until(ExpectedConditions.elementToBeClickable(menuDivisionsButton));
+    menuDivisionsButton.click();
+    selectorDivisions.findElement(By.xpath("//div[text()= '" + divisionName + "']"));
+    accountItem = selectorDivisions.findElement(By.xpath("//div[text()= '" + divisionName + "']"));
+    accountItem.click();
+    menuDivisionsButton.click();
   }
 
   public void clickOnService(String service) {
