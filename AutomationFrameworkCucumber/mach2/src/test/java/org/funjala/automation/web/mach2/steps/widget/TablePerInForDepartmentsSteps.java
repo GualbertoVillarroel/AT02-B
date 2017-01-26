@@ -27,7 +27,7 @@ import static org.testng.Assert.assertTrue;
 /**
  * Created by Administrator on 1/25/2017.
  */
-public class TableFilteringByEmployee {
+public class TablePerInForDepartmentsSteps {
 
   WebDriver driver;
   TopMenuPage topMenuPage;
