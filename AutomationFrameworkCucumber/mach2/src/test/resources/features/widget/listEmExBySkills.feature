@@ -4,8 +4,8 @@ This scenario should validate Employee Experience by a Skill search containing C
 
   Scenario: Verify list of Employees experience by specific Skill > Cloud.
     Given I am at Mach2 webpage
-    And I set username or mail textfield as "at02"
-    And I set password textfield as "Automation123" and press Submit button
+    And I set username as "at02"
+    And I set password as "Automation123" and press Submit button
     And I add a new Board to the Group
     And I click on Widget button at the top menubar
     And I click on "List" icon inside the Widget options
