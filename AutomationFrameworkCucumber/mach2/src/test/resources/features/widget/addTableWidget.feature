@@ -18,3 +18,13 @@ Feature: Add Table Widget
     And I fill manager name on textfield as "Patricia Villagomez Montalvo"
     And I click on save button
     Then I have a table widget with "Patricia Villagomez Montalvo" filled
+
+  Scenario: Add Table Widget with information of skills in java.
+    Given I have a board created
+    And I click on Widget button
+    When I click on "Table" button on Widget displayed
+    And I click on "Open ERP" service
+    And I select an Option of Open ERP
+    And I fill division textfield as "Networking"
+    And I click on save button
+    Then I have a table widget with division "Networking"

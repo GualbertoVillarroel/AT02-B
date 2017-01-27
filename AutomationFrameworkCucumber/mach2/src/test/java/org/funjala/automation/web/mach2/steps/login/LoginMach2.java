@@ -32,7 +32,7 @@ public class LoginMach2 {
   }
 
   @And("^I put a ([^\"]*) in password textfield and press Submit button$")
-  public void putPasswordAndPressSubmitButton(String password) {
+  public void putPasswordAndPressSubmitButton(String password) throws InterruptedException {
     loginPage.setPasswordTextField(password);
     topMenuPage = loginPage.clickNextButton();
     topMenuPage.clickOnLogOut();

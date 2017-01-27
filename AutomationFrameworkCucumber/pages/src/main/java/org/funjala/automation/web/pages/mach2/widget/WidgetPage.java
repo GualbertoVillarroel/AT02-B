@@ -89,14 +89,14 @@ public class WidgetPage {
   @FindBy(xpath = WidgetModel.menuDivisionsButton)
   WebElement menuDivisionsButton;
 
-  @FindBy(xpath = WidgetModel.selectorDivisions)
-  WebElement selectorDivisions;
-
   @FindBy(xpath = WidgetModel.accountItem)
   WebElement accountItem;
 
   @FindBy(xpath = WidgetModel.ListElementListWidget)
   private List<WebElement> listElementListWidget;
+
+  @FindBy(xpath = WidgetModel.selectorDivisions)
+  List<WebElement> selectorDivisions;
 
   public WidgetPage(WebDriver driver) {
     this.driver = driver;
@@ -112,9 +112,10 @@ public class WidgetPage {
   public void setDivisionName(String divisionName) {
     wait.until(ExpectedConditions.elementToBeClickable(menuDivisionsButton));
     menuDivisionsButton.click();
-    selectorDivisions.findElement(By.xpath("//div[text()= '" + divisionName + "']"));
-    accountItem = selectorDivisions.findElement(By.xpath("//div[text()= '" + divisionName + "']"));
-    accountItem.click();
+    for (WebElement element : selectorDivisions) {
+      if (element.getText().trim().toUpperCase().equals(divisionName.trim().toUpperCase()))
+        element.click();
+    }
     menuDivisionsButton.click();
   }
 
