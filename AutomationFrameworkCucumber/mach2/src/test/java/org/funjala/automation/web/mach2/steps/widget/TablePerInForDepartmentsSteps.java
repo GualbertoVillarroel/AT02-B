@@ -10,6 +10,7 @@ import org.funjala.automation.web.model.erp.search.ModelSearch;
 import org.funjala.automation.web.pages.erp.home.OEHomePage;
 import org.funjala.automation.web.pages.erp.login.OELoginPage;
 import org.funjala.automation.web.pages.erp.search.OESearch;
+import org.funjala.automation.web.pages.mach2.dashboard.MyDashboard;
 import org.funjala.automation.web.pages.mach2.login.LoginPage;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
 import org.funjala.automation.web.pages.mach2.sidebar.SideBarPage;
@@ -97,6 +98,10 @@ public class TablePerInForDepartmentsSteps {
 
   @Then("^I have a table with employees filtered for a \"([^\"]*)\"$")
   public void iHaveATableWithEmployeesFilteredForA(String s) throws InterruptedException, IOException {
+    MyDashboard myDashboard = new MyDashboard(driver);
+    myDashboard.deleteBoard();
+
+    topMenuPage.clickOnLogOut();
     driver = Driver.getDriver().openBrowser(Driver.OpenERP);
     oeLoginPage = new OELoginPage(driver);
     oeLoginPage.setUserName("jose7");

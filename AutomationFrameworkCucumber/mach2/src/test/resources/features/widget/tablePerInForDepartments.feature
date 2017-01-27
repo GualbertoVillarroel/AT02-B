@@ -1,5 +1,4 @@
-@tableDepartment
-Feature: Add table widget
+Feature: Employees personal information by Department
 
   Background: Login
     Given I go to Mach2 web page

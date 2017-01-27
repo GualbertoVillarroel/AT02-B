@@ -38,12 +38,15 @@ public class OEHomePage {
     return userAccount.getText().equalsIgnoreCase(user);
   }
 
-  public void clickUserAccount() {
+  public void clickUserAccount() throws InterruptedException {
+    Thread.sleep(1000);
     userAccount.click();
   }
 
-  public void clickLogOut() {
+  public void clickLogOut() throws InterruptedException {
+    Thread.sleep(1000);
     logOut.click();
+    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"fm1\"]/div[1]")));
   }
 
   public void clickHumanResources() {
