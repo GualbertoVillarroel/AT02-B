@@ -150,11 +150,13 @@ public class TableEmPeInForManagerSteps {
 
   @And("^I fill division textfield as \"([^\"]*)\"$")
   public void iFillDivisionTextfieldAs(String value) throws Throwable {
+    log.info("Step", "I fill division textfield as ", value);
     widget.setDivisionName(value);
   }
 
   @Then("^I have a table widget with division \"([^\"]*)\"$")
   public void iHaveATableWidgetWithDivision(String value) throws Throwable {
+    log.info("Step", "I have a table widget with division", value);
     int actualResult = widget.verifyCant(value);
     System.out.println(actualResult);
 
