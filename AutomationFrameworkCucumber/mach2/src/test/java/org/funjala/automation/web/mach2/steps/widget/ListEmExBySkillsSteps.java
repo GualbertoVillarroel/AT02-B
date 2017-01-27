@@ -9,6 +9,7 @@ import org.funjala.automation.web.common.drivers.Driver;
 import org.funjala.automation.web.pages.erp.home.OEHomePage;
 import org.funjala.automation.web.pages.erp.login.OELoginPage;
 import org.funjala.automation.web.pages.erp.search.OESearch;
+import org.funjala.automation.web.pages.mach2.dashboard.MyDashboard;
 import org.funjala.automation.web.pages.mach2.login.LoginPage;
 import org.funjala.automation.web.pages.mach2.menu.TopMenuPage;
 import org.funjala.automation.web.pages.mach2.sidebar.SideBarPage;
@@ -89,8 +90,11 @@ public class ListEmExBySkillsSteps {
     int actualResult = widget.verifyQtyEmployeeExperienceBySkillsCloud(skillName) ;
     System.out.println("****************** Result of items found in the List**********");
     System.out.println("The number of Employees found is:" + actualResult+ "by Skill: " + skillName);
-    SideBarPage sideBarPage = topMenuPage.goToSidebar();
-    sideBarPage.deleteAllBoards();
+    MyDashboard dashboard = new MyDashboard(driver);
+    dashboard.deleteBoard();
+
+    //Logout Mach2
+    topMenuPage.clickOnLogOut();
 
     //Login OPEN ERP
 
@@ -117,6 +121,8 @@ public class ListEmExBySkillsSteps {
     List<WebElement> listManager = searchERP.listOfAllElements();
 
     assertEquals(listManager.size(), actualResult);
+    homeERP.clickUserAccount();
+    homeERP.clickLogOut();
 
   }
 
