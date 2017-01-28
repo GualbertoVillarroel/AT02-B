@@ -1,0 +1,85 @@
+2017-01-27 08:32:47 INFO  - SCENARIO: Add List Widget with Employees Personal Information for Job Title. MESSAGE: starting scenario.
+2017-01-27 08:32:47 INFO  - STEP: I am login on Mach2 webpage. MESSAGE: Go to Mach2 webpage.
+2017-01-27 08:32:55 INFO  - STEP: I have a board created with a widget. MESSAGE: created board and widget.
+2017-01-27 08:32:57 INFO  - SCENARIO: Add Table Widget with Employees Personal Information. MESSAGE: starting scenario.
+2017-01-27 08:32:57 INFO  - STEP: I am on Mach2 webpage. MESSAGE: Go to Mach2 webpage.
+2017-01-27 08:33:00 INFO  - STEP: I fill username or mail textfield as at02. MESSAGE: Fill a valid user name.
+2017-01-27 08:33:15 INFO  - SCENARIO: Add Table Widget with information of skills in java.. MESSAGE: starting scenario.
+2017-01-27 08:33:15 INFO  - STEP: I am on Mach2 webpage. MESSAGE: Go to Mach2 webpage.
+2017-01-27 08:33:18 INFO  - STEP: I fill username or mail textfield as at02. MESSAGE: Fill a valid user name.
+2017-01-27 08:33:18 INFO  - SCENARIO: Verify list of Employees experience by specific Skill > Cloud.. MESSAGE: starting scenario.
+2017-01-27 08:33:34 INFO  - SCENARIO: Add widget table with employee information. MESSAGE: starting scenario.
+2017-01-27 08:33:34 INFO  - STEP: I am on Mach2 Webpage. MESSAGE: Go to Mach2 webpage.
+2017-01-27 08:33:35 INFO  - STEP: I fill username or Mail textfield as at02. MESSAGE: Fill a valid user name.
+2017-01-27 08:33:36 INFO  - SCENARIO: Add a Table Widget using Open ERP service to show Engineer Information for a Manager. MESSAGE: starting scenario.
+2017-01-27 08:33:36 INFO  - STEP: I am on Mach2 Web page. MESSAGE: Go to Mach2 web page.
+2017-01-27 08:33:37 INFO  - STEP: I set a username as at02. MESSAGE: Set a valid user name.
+2017-01-27 08:33:52 INFO  - SCENARIO: Add Table Widget with Employees Personal Information. MESSAGE: starting scenario.
+2017-01-27 08:33:52 INFO  - STEP: I go to Mach2 web page. MESSAGE: Go to Mach2 web page.
+2017-01-27 08:33:53 INFO  - STEP: I set a username and a password . MESSAGE: Set a valid user name.
+2017-01-27 08:35:49 INFO  - SCENARIO: Add Table Widget with Employees Personal Information. MESSAGE: starting scenario.
+2017-01-27 08:35:49 INFO  - STEP: I go to Mach2 web page. MESSAGE: Go to Mach2 web page.
+2017-01-27 08:35:57 INFO  - STEP: I set a username and a password . MESSAGE: Set a valid user name.
+2017-01-27 08:35:58 INFO  - STEP: I have a board . MESSAGE: create a board.
+2017-01-27 08:35:59 INFO  - STEP: I click over Widget Button. MESSAGE: create a widget.
+2017-01-27 08:35:59 INFO  - STEP: I click on Table button on the Widget. MESSAGE: select a table.
+2017-01-27 08:36:00 INFO  - STEP: I click on Open ERP service. MESSAGE: select a service.
+2017-01-27 08:36:00 INFO  - STEP: I select Option of Open ERP. MESSAGE: select a OPENERP.
+2017-01-27 08:36:01 INFO  - STEP: I set department name with a name. MESSAGE: select a Security test.
+2017-01-27 08:36:02 INFO  - STEP: I save that option with the department. MESSAGE: save option.
+2017-01-27 08:36:06 INFO  - STEP: I have a table with employees filtered. MESSAGE: expected result.
+2017-01-27 09:10:53 INFO  - SCENARIO: Add Table Widget with Employees Personal Information. MESSAGE: starting scenario.
+2017-01-27 09:10:54 INFO  - STEP: I go to Mach2 web page. MESSAGE: Go to Mach2 web page.
+2017-01-27 09:11:01 INFO  - STEP: I set a username and a password . MESSAGE: Set a valid user name.
+2017-01-27 09:11:01 INFO  - STEP: I have a board . MESSAGE: create a board.
+2017-01-27 09:11:02 INFO  - STEP: I click over Widget Button. MESSAGE: create a widget.
+2017-01-27 09:11:02 INFO  - STEP: I click on Table button on the Widget. MESSAGE: select a table.
+2017-01-27 09:11:03 INFO  - STEP: I click on Open ERP service. MESSAGE: select a service.
+2017-01-27 09:11:03 INFO  - STEP: I select Option of Open ERP. MESSAGE: select a OPENERP.
+2017-01-27 09:11:03 INFO  - STEP: I set department name with a name. MESSAGE: select a Security test.
+2017-01-27 09:11:04 INFO  - STEP: I save that option with the department. MESSAGE: save option.
+2017-01-27 09:11:07 INFO  - STEP: I have a table with employees filtered. MESSAGE: expected result.
+2017-01-28 10:42:21 INFO  - SCENARIO: Add Table Widget with Employees Personal Information. MESSAGE: starting scenario.
+2017-01-28 10:42:22 INFO  - STEP: I go to Mach2 web page. MESSAGE: Go to Mach2 web page.
+2017-01-28 10:42:34 INFO  - STEP: I set a username and a password . MESSAGE: Set a valid user name.
+2017-01-28 10:42:35 INFO  - STEP: I have a board . MESSAGE: create a board.
+2017-01-28 10:42:38 INFO  - STEP: I click over Widget Button. MESSAGE: create a widget.
+2017-01-28 10:42:38 INFO  - STEP: I click on Table button on the Widget. MESSAGE: select a table.
+2017-01-28 10:42:40 INFO  - STEP: I click on Open ERP service. MESSAGE: select a service.
+2017-01-28 10:42:42 INFO  - STEP: I select Option of Open ERP. MESSAGE: select a OPENERP.
+2017-01-28 10:42:42 INFO  - STEP: I set department name with a name. MESSAGE: select a Security test.
+2017-01-28 10:42:44 INFO  - STEP: I save that option with the department. MESSAGE: save option.
+2017-01-28 10:42:50 INFO  - STEP: I have a table with employees filtered. MESSAGE: expected result.
+2017-01-28 11:10:21 INFO  - SCENARIO: Add Table Widget with Employees Personal Information. MESSAGE: starting scenario.
+2017-01-28 11:10:22 INFO  - STEP: I go to Mach2 web page. MESSAGE: Go to Mach2 web page.
+2017-01-28 11:10:30 INFO  - STEP: I set a username and a password . MESSAGE: Set a valid user name.
+2017-01-28 11:10:30 INFO  - STEP: I have a board . MESSAGE: create a board.
+2017-01-28 11:10:31 INFO  - STEP: I click over Widget Button. MESSAGE: create a widget.
+2017-01-28 11:10:31 INFO  - STEP: I click on Table button on the Widget. MESSAGE: select a table.
+2017-01-28 11:10:32 INFO  - STEP: I click on Open ERP service. MESSAGE: select a service.
+2017-01-28 11:10:33 INFO  - STEP: I select Option of Open ERP. MESSAGE: select a OPENERP.
+2017-01-28 11:10:33 INFO  - STEP: I set department name with a name. MESSAGE: select a Security test.
+2017-01-28 11:10:35 INFO  - STEP: I save that option with the department. MESSAGE: save option.
+2017-01-28 11:10:38 INFO  - STEP: I have a table with employees filtered. MESSAGE: expected result.
+2017-01-28 11:35:33 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 11:46:56 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 11:47:58 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 12:12:31 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 12:12:53 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 12:19:25 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 12:20:45 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 12:43:07 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 12:43:57 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 13:04:59 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 13:07:30 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 13:08:06 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 14:21:40 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 14:36:06 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 14:37:16 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 14:38:23 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 15:28:01 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 15:28:24 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 15:29:12 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 15:29:45 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 15:30:43 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.
+2017-01-28 15:32:32 INFO  - SCENARIO: Verify table of Employees Experience by specific Skill Levels - Advanced.. MESSAGE: starting scenario.

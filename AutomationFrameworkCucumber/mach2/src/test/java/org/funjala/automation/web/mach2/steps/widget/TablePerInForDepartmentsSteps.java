@@ -18,6 +18,9 @@ import org.funjala.automation.web.pages.mach2.sidebar.SideBarPage;
 import org.funjala.automation.web.pages.mach2.widget.WidgetPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.asserts.Assertion;
+import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -131,8 +134,11 @@ public class TablePerInForDepartmentsSteps {
     oeSearch.clickUnlimitedOption();
 
     List<WebElement> result = oeSearch.listOfAllElements();
-    assertEquals(result.size(), x, "Compare numbers of Items");
+    SoftAssert sd = new SoftAssert();
+    sd.assertEquals(result.size(), x, "Compare numbers of Items");
     homePage.clickUserAccount();
     homePage.clickLogOut();
+
+    sd.assertAll();
   }
 }
