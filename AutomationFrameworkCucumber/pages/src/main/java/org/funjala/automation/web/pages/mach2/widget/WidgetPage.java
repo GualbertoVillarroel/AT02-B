@@ -56,42 +56,25 @@ public class WidgetPage {
   private List<WebElement> listName;
 
 
-  //---------------------------------
-  public static final String advanceConfigurationPath = ".//a/b[text()='ADVANCED CONFIGURATION']";
-  public static final String comboboxDepartmentPath = ".//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div";
-  public static final String tablePath = "//body/div[6]/div[3]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/table";
-  public static final String tableColumnSkillsPath = "//div[2]/div[1]/table/tbody/tr/td[2]";
-  public static final String departmentItem = "//div[contains(text(),'%s')]";
-  public static final String skillLevelPath = "//div[contains(text(),'%s')]";
-  public static final String skillLevelsPath = "//div[@class='ui form params-container']/div[3]/div";
-  //-------------------------------
-
-  @FindBy(xpath = advanceConfigurationPath)
+  //Corregir esto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-----------------------------------------------------
+  @FindBy(xpath = ".//a/b[text()='ADVANCED CONFIGURATION']")
   private WebElement advanceConfiguration;
 
-  @FindBy(xpath = comboboxDepartmentPath)
+  @FindBy(xpath = ".//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div")
   private WebElement comboboxDepartment;
 
-  @FindBy(xpath = tablePath)
+//  @FindBy(xpath = "//*[@id='mach-wizard']/div/div[3]/div/div/div[2]/div[4]/div[2]/div/div[1]/div/div[2]")
+//  private List<WebElement> listOfDepartments;
+
+  @FindBy(xpath = "//body/div[6]/div[3]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/table")
   private WebElement table;
 
-  @FindBy(xpath = tableColumnSkillsPath)
-  private List<WebElement> tableColumnSkills;
+  public int numberOfItems() {
 
-  @FindBy(xpath = WidgetModel.menuDivisionsButton)
-  WebElement menuDivisionsButton;
+    return table.findElements(By.cssSelector("tr")).size() - 1;
+  }
 
-  @FindBy(xpath = WidgetModel.accountItem)
-  WebElement accountItem;
-
-  @FindBy(xpath = WidgetModel.ListElementListWidget)
-  private List<WebElement> listElementListWidget;
-
-  @FindBy(xpath = WidgetModel.selectorDivisions)
-  List<WebElement> selectorDivisions;
-
-  @FindBy(xpath = skillLevelsPath)
-  WebElement skillLevels;
+  private static final String departmentItem = "//div[contains(text(),'%s')]";
 
   public void clickOnAdvanceConfiguration() {
     wait.until(ExpectedConditions.visibilityOf(advanceConfiguration));
@@ -105,20 +88,10 @@ public class WidgetPage {
   public void setDepartmentName(String departmentName) {
     wait.until(ExpectedConditions.visibilityOf(comboboxDepartment));
     wait.until(ExpectedConditions.elementToBeClickable(comboboxDepartment));
+
     comboboxDepartment.click();
     driver.findElement(By.xpath(String.format(departmentItem, departmentName))).click();
   }
-
-  public int findSkillOnColumns(String skill) {
-    int count = 0;
-    for (WebElement element : tableColumnSkills) {
-      if (element.getText().contains(skill)) {
-        count++;
-      }
-    }
-    return count;
-  }
-
   public int verifyCantDepartment(String department) {
     int cant = 0;
     for (WebElement element : listElementTable) {
@@ -129,18 +102,22 @@ public class WidgetPage {
     return cant;
   }
 
+  @FindBy(xpath = WidgetModel.menuDivisionsButton)
+  WebElement menuDivisionsButton;
+
+  @FindBy(xpath = WidgetModel.accountItem)
+  WebElement accountItem;
+
+  @FindBy(xpath = WidgetModel.ListElementListWidget)
+  private List<WebElement> listElementListWidget;
+
+  @FindBy(xpath = WidgetModel.selectorDivisions)
+  List<WebElement> selectorDivisions;
+
   public WidgetPage(WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);
     wait = new WebDriverWait(driver, 10);
-  }
-
-  public void clickOnSkillLevels() {
-    wait.until(ExpectedConditions.visibilityOf(skillLevels)).click();
-  }
-
-  public void setSkillLevel(String skill) {
-    driver.findElement(By.xpath(String.format(skillLevelPath, skill))).click();
   }
 
   public void addWidget(String type) {
