@@ -54,10 +54,12 @@ public class TopMenuPage {
     userMenu.click();
     Thread.sleep(1000);
     logOutButton.click();
-    driver.get("http://10.31.2.215:3666/");
   }
 
   public void clickMenuBoard() {
+    wait.until(ExpectedConditions.elementToBeClickable(jalaItem));
+    jalaItem.click();
+    wait.until(ExpectedConditions.visibilityOf(menuBoard));
     wait.until(ExpectedConditions.elementToBeClickable(menuBoard));
     menuBoard.click();
   }
@@ -74,6 +76,9 @@ public class TopMenuPage {
   }
 
   public void addNewBoard() {
+    wait.until(ExpectedConditions.visibilityOf(jalaItem));
+    wait.until(ExpectedConditions.elementToBeClickable(jalaItem));
+    jalaItem.click();
     newBoard.click();
     wait.until(ExpectedConditions.elementToBeClickable(addBoard));
     addBoard.click();
