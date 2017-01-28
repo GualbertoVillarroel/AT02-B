@@ -95,7 +95,8 @@ public class WidgetPage {
   public int verifyCantDepartment(String department) {
     int cant = 0;
     for (WebElement element : listElementTable) {
-      if (element.getText().equals("Security test")) {
+      wait.until(ExpectedConditions.visibilityOf(element));
+      if (element.getText().equals(department)) {
         cant++;
       }
     }
@@ -195,6 +196,7 @@ public class WidgetPage {
   public int verifyCant(String managerName) {
     int cant = 0;
     for (WebElement element : listElementTable) {
+      wait.until(ExpectedConditions.visibilityOf(element));
       if (element.getText().equals(managerName)) {
         cant++;
       }

@@ -25,50 +25,13 @@ import static org.testng.Assert.assertEquals;
  * Created by JorgeForero on 1/25/2017.
  */
 public class ListEnInForJobTitleStep {
-  WebDriver driver;
-  TopMenuPage topMenuPage;
-  LoginPage loginPage;
-  WidgetPage widget;
-  Log log = Log.getInstance();
-
-  @Given("^I am login on Mach2 webpage with user: \"([^\"]*)\" and password: \"([^\"]*)\"$")
-  public void loginOnMachWebpage(String userName, String password) throws IOException {
-    log.info("Step", "I am login on Mach2 webpage", "Go to Mach2 webpage");
-    driver = Driver.getDriver().openBrowser(Driver.Mach2);
-    loginPage = new LoginPage(driver);
-    loginPage.setUsernameTextField(userName);
-    loginPage.setPasswordTextField(password);
-    topMenuPage = loginPage.clickNextButton();
-  }
-
-  @Given("^I have a board created with a widget$")
-  public void iHaveABoardWithWidget() {
-    log.info("Step", "I have a board created with a widget", "created board and widget");
-    topMenuPage.addNewBoard();
-    widget = topMenuPage.addNewWidget();
-  }
-
-  @When("^I select \"([^\"]*)\" on Widgets options$")
-  public void iClickOnListButtonOnWidgetDisplayed(String widgetType) {
-    log.info("Step", "I click on Widget button", "Add a Widget");
-    widget.addWidget(widgetType);
-  }
-
-  @And("^I select \"([^\"]*)\" services$")
-  public void iClickOnOpenERPService(String service) {
-    log.info("Step", "I click on " + service + " service", "Select Open ERP service");
-    widget.clickOnService(service);
-  }
-
-  @And("^I select Engineer Information$")
-  public void iSelectOpenERP() {
-    log.info("Step", "I select Engineer Information ", "Engineer Information");
-    widget.selectEngineerInformationOption();
-  }
 
   @And("^I fill Job Title with \"([^\"]*)\" option and I click on save$")
   public void iFillJobTitle(String jobTitle) {
+    Log log = Log.getInstance();
+    WebDriver driver = Driver.getDriver().getWebDriver();
     log.info("Step", "I fill Job Title with " + jobTitle, "Select Job Title");
+    WidgetPage widget = new WidgetPage(driver);
     widget.clickAdvanceConfiguration();
     widget.selectCFO();
     widget.clickSaveButton();
@@ -76,18 +39,23 @@ public class ListEnInForJobTitleStep {
 
   @Then("^I have a List widget with \"([^\"]*)\"$")
   public void iHaveAListWidgetWithFilled(String name) throws IOException, InterruptedException {
+    Log log = Log.getInstance();
+    WebDriver driver = Driver.getDriver().getWebDriver();
     log.info("Step", "Verification on Mach2 and Open ERP", "Verification of datas");
+    WidgetPage widget = new WidgetPage(driver);
     boolean mach2 = widget.verifyList(name);
     Thread.sleep(5000);
     MyDashboard dashboard = new MyDashboard(driver);
     dashboard.deleteBoard();
 
     //Logout Mach2
+    TopMenuPage topMenuPage = new TopMenuPage(driver);
     topMenuPage.clickOnLogOut();
     assertEquals(openERPVerification(name), mach2);
   }
 
   private boolean openERPVerification(String name) throws IOException, InterruptedException {
+    WebDriver driver;
     driver = Driver.getDriver().openBrowser(Driver.OpenERP);
     OELoginPage loginERP = new OELoginPage(driver);
     loginERP.setUserName("jose7");

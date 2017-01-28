@@ -30,83 +30,28 @@ import static org.testng.Assert.assertEquals;
  * Created by DavidVallejos on 1/21/2017.
  */
 public class TableEmPeInForManagerSteps {
-  WebDriver driver;
-  TopMenuPage topMenuPage;
-  LoginPage loginPage;
-  WidgetPage widget;
-  MyDashboard dashboard;
-  Log log = Log.getInstance();
-
-  @Given("^I am on Mach2 webpage$")
-  public void iAmOnMachWebpage() throws IOException {
-    log.info("Step", "I am on Mach2 webpage", "Go to Mach2 webpage");
-    driver = Driver.getDriver().openBrowser(Driver.Mach2);
-    loginPage = new LoginPage(driver);
-  }
-
-  @And("^I fill username or mail textfield as \"([^\"]*)\"$")
-  public void iFillUsernameOrMailTextfieldAs(String userName) {
-    log.info("Step", "I fill username or mail textfield as " + userName, "Fill a valid user name");
-    loginPage.setUsernameTextField(userName);
-  }
-
-  @And("^I fill password textfield as \"([^\"]*)\" and press Submit button$")
-  public void iFillPasswordTextfieldAsAndPressSubmitButton(String password) {
-    log.info("Step", "I fill password textfield as " + password + " and press Submit button", "Fill a valid password");
-    loginPage.setPasswordTextField(password);
-    topMenuPage = loginPage.clickNextButton();
-  }
-
-  @Given("^I have a board created$")
-  public void iHaveABoardCreated() {
-    log.info("Step", "I have a board created", "Add a new Board");
-    topMenuPage.addNewBoard();
-  }
-
-  @And("^I click on Widget button$")
-  public void iClickOnWidgetButton() {
-    log.info("Step", "I click on Widget button", "Add a Widget");
-    widget = topMenuPage.addNewWidget();
-  }
-
-  @When("^I click on \"([^\"]*)\" button on Widget displayed$")
-  public void iClickOnTableButtonOnWidgetDisplayed(String widgetType) {
-    log.info("Step", "I click on " + widgetType + " button on Widget displayed", "Select Table Widget");
-    widget.addWidget(widgetType);
-  }
-
-  @And("^I click on \"([^\"]*)\" service$")
-  public void iClickOnOpenERPService(String service) {
-    log.info("Step", "I click on " + service + " service", "Select Open ERP service");
-    widget.clickOnService(service);
-  }
-
-  @And("^I select an Option of Open ERP$")
-  public void iSelectAnOptionOfOpenERP() {
-    log.info("Step", "I select an Option of Open ERP ", "Select Employees Personal Information");
-    widget.selectErpOption();
-  }
 
   @And("^I fill manager name on textfield as \"([^\"]*)\"$")
   public void iFillManagerNameOnTextfieldAs(String managerName) {
+    Log log = Log.getInstance();
+    WebDriver driver = Driver.getDriver().getWebDriver();
+    WidgetPage widget = new WidgetPage(driver);
     log.info("Step", "I fill manager name on textfield as " + managerName, "Select Manager");
     widget.setManagerName(managerName);
   }
 
-  @And("^I click on save button$")
-  public void iClickOnSaveButton() {
-    log.info("Step", "I click on save button", "Click on save button");
-    widget.clickSaveButton();
-  }
-
   @Then("^I have a table widget with \"([^\"]*)\" filled$")
   public void iHaveATableWidgetWithFilled(String managerName) throws IOException, InterruptedException {
+    Log log = Log.getInstance();
+    WebDriver driver = Driver.getDriver().getWebDriver();
+    WidgetPage widget = new WidgetPage(driver);
+    MyDashboard dashboard = new MyDashboard(driver);
+    TopMenuPage topMenuPage = new TopMenuPage(driver);
     log.info("Step", "Verification on Mach2 and Open ERP", "Verification of datas");
     int actualResult = widget.verifyCant(managerName);
 
     //Clean up Widget and Board
     log.info("Clean", "Delete Widget and Board Mach2", "Clean up: Delete Mach2");
-    dashboard = new MyDashboard(driver);
     dashboard.deleteBoard();
 
     //Logout Mach2
@@ -138,30 +83,44 @@ public class TableEmPeInForManagerSteps {
     searchERP.clickQuantityButton();
     searchERP.clickUnlimitedOption();
     List<WebElement> listManager = searchERP.listOfAllElements();
+    int expectResult = listManager.size();
 
     log.info("Verification", "Verification on Mach2 and Open ERP", "Verification of Mach2 with OpenERP");
-    assertEquals(listManager.size(), actualResult);
+
+    System.out.println(">>>>>>>>>>>>>>>>>>");
+    System.out.println(listManager.size());
+    System.out.println(actualResult);
+    System.out.println(">>>>>>>>>>>>>>>>>>");
 
     //Logout Open ERP page
     log.info("Clean", "Logout OpenERP", "Clean up: Logout");
     homeERP.clickUserAccount();
     homeERP.clickLogOut();
+
+    assertEquals(expectResult, actualResult);
   }
 
   @And("^I fill division textfield as \"([^\"]*)\"$")
   public void iFillDivisionTextfieldAs(String value) throws Throwable {
+    Log log = Log.getInstance();
+    WebDriver driver = Driver.getDriver().getWebDriver();
+    WidgetPage widget = new WidgetPage(driver);
     log.info("Step", "I fill division textfield as ", value);
     widget.setDivisionName(value);
   }
 
   @Then("^I have a table widget with division \"([^\"]*)\"$")
   public void iHaveATableWidgetWithDivision(String value) throws Throwable {
+    Log log = Log.getInstance();
+    WebDriver driver = Driver.getDriver().getWebDriver();
+    WidgetPage widget = new WidgetPage(driver);
+    MyDashboard dashboard = new MyDashboard(driver);
+    TopMenuPage topMenuPage = new TopMenuPage(driver);
     log.info("Step", "I have a table widget with division", value);
     int actualResult = widget.verifyCant(value);
     System.out.println(actualResult);
 
     //Clean up Widget and Board
-    dashboard = new MyDashboard(driver);
     dashboard.deleteBoard();
 
     //Logout Mach2
@@ -192,12 +151,13 @@ public class TableEmPeInForManagerSteps {
     searchERP.clickQuantityButton();
     searchERP.clickUnlimitedOption();
     List<ModelSearch> listManager = searchERP.getResultOfSearch();
+    int expectResult = listManager.size();
 
-    assertEquals(listManager.size(), actualResult);
 
     //Logout Open ERP page
     homeERP.clickUserAccount();
     homeERP.clickLogOut();
 
+    assertEquals(expectResult, actualResult);
   }
 }
