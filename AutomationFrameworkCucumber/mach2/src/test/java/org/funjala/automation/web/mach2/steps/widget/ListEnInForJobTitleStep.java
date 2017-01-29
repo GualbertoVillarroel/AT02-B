@@ -26,16 +26,16 @@ import static org.testng.Assert.assertEquals;
  */
 public class ListEnInForJobTitleStep {
 
-  @And("^I fill Job Title with \"([^\"]*)\" option and I click on save$")
-  public void iFillJobTitle(String jobTitle) {
+  @And("^I select \"([^\"]*)\" on \"([^\"]*)\" option$")
+  public void iFillJobTitle( String value, String tag) {
     Log log = Log.getInstance();
     WebDriver driver = Driver.getDriver().getWebDriver();
-    log.info("Step", "I fill Job Title with " + jobTitle, "Select Job Title");
+    log.info("Step", "I select" + tag + " with " +value, "select" + tag + " with " +value);
     WidgetPage widget = new WidgetPage(driver);
-    widget.clickAdvanceConfiguration();
-    widget.selectCFO();
-    widget.clickSaveButton();
+    widget.clickOnSpecificComboBox(tag, value);
   }
+
+
 
   @Then("^I have a List widget with \"([^\"]*)\"$")
   public void iHaveAListWidgetWithFilled(String name) throws IOException, InterruptedException {

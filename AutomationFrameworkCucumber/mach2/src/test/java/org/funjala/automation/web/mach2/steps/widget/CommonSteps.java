@@ -68,6 +68,15 @@ public class CommonSteps {
     widget.clickOnSpecificService(specificService);
   }
 
+  @And("^I click on Advanced Configuration$")
+  public void clickOnAdvanceConfiguration() {
+    Log log = Log.getInstance();
+    WebDriver driver = Driver.getDriver().getWebDriver();
+    log.info("Step", "I select advance configuration", "Click on advance configuration");
+    WidgetPage widget = new WidgetPage(driver);
+    widget.clickAdvanceConfiguration();
+  }
+
   @And("^I click on save button$")
   public void iClickOnSaveButton() {
     Log log = Log.getInstance();
