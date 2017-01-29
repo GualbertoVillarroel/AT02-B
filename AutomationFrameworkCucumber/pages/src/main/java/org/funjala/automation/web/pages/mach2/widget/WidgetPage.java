@@ -49,9 +49,6 @@ public class WidgetPage {
   @FindBy(xpath = "//div[4]/div[2]/div/div[2]/div/i")
   private WebElement jobTitles;
 
-  @FindBy(xpath = "//div[text()='CFO']")
-  private WebElement optionCFO;
-
   @FindBy(xpath = "//div[@class='truncated text header']")
   private List<WebElement> listName;
 
@@ -122,7 +119,13 @@ public class WidgetPage {
   }
 
   public void addWidget(String type) {
+    try {
+      Thread.sleep(500);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-component='widget']")));
+    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-component='widget']")));
     driver.findElement(By.xpath("//div[@class='name' and text()=" + "\'" + type + "\'" + "]")).click();
   }
 
@@ -144,6 +147,15 @@ public class WidgetPage {
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"mach-wizard\"]//*[@class=\"wizard-provider-panel\"]")));
     driver.findElement(By.xpath("//h4[@class='ui header' and text()=" + "\'" + specificService + "\'" + "]")).click();
   }
+
+  public void clickOnSpecificComboBox(String tag, String value) {
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//b[text()='" + tag + "']/parent::*/following-sibling::div/i")));
+    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//b[text()='" + tag + "']/parent::*/following-sibling::div/i")));
+    driver.findElement(By.xpath("//b[text()='" + tag + "']/parent::*/following-sibling::div/i")).click();
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='menu transition visible']/div[text()='" + value + "']")));
+    driver.findElement(By.xpath("//div[@class='menu transition visible']/div[text()='" + value + "']")).click();
+  }
+
 
   public void clickOnSpecificCombobox() {
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"mach-wizard\"]/div/div[3]/div/div/div[2]/div[4]/div")));
@@ -204,11 +216,6 @@ public class WidgetPage {
     return cant;
   }
 
-  public void selectEngineerInformationOption() {
-    wait.until(ExpectedConditions.elementToBeClickable(erpEngineerInformationOption));
-    erpEngineerInformationOption.click();
-  }
-
   public boolean verifyList(String name) {
     boolean result = false;
     for (WebElement element : listName) {
@@ -224,14 +231,7 @@ public class WidgetPage {
     advanceConfig.click();
   }
 
-  public void selectCFO() {
-    wait.until(ExpectedConditions.visibilityOf(jobTitles));
-    wait.until(ExpectedConditions.elementToBeClickable(jobTitles));
-    jobTitles.click();
-    wait.until(ExpectedConditions.visibilityOf(optionCFO));
-    wait.until(ExpectedConditions.elementToBeClickable(optionCFO));
-    optionCFO.click();
-  }
+
 
   public void clickSaveButton() {
     wait.until(ExpectedConditions.visibilityOf(saveButton));

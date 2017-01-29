@@ -70,6 +70,12 @@ public class TopMenuPage {
   }
 
   public WidgetPage addNewWidget() {
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    wait.until(ExpectedConditions.visibilityOf(addWidget));
     wait.until(ExpectedConditions.elementToBeClickable(addWidget));
     addWidget.click();
     return new WidgetPage(driver);
