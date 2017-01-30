@@ -53,7 +53,7 @@ public class WidgetPage {
   private List<WebElement> listName;
 
 
-  //Corregir esto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-----------------------------------------------------
+
   @FindBy(xpath = ".//a/b[text()='ADVANCED CONFIGURATION']")
   private WebElement advanceConfiguration;
 
